@@ -20,7 +20,9 @@ namespace Assets.Scripts
             if (_timeCounter/_spawnRate >= 1)
             {
                 _timeCounter = _timeCounter % _spawnRate;
-                GameObject newTarget = Instantiate(Target, Vector3.forward, Quaternion.identity) as GameObject;
+
+                Vector3 position = Random.onUnitSphere * 3;
+                GameObject newTarget = Instantiate(Target, position, Quaternion.identity) as GameObject;
                 if (newTarget != null) newTarget.transform.parent = transform;
             }
         }
