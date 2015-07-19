@@ -15,6 +15,9 @@ namespace Assets.Scripts
 
         public GameObject BloodAndGoreParticles;
 
+		public AudioClip[] hammerSoundArray;
+		private AudioClip hammerSound;
+
         void Start ()
         {
             _focusMarker = transform.Find("focus marker").gameObject;
@@ -22,6 +25,9 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(false);
 
             _lastTimeStep = Time.time;
+			//hammerSound = AudioClip[Random.Range(0,hammerSoundArray.Length)];
+
+			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
         }
 	
         void Update ()
@@ -88,5 +94,10 @@ namespace Assets.Scripts
             _isUnderGaze = false;
             _focusMarker.gameObject.SetActive(false);
         }
+
+		void PlayHammerSound()
+		{
+			GetComponent<AudioSource>().Play();
+		}
     }
 }
