@@ -14,6 +14,7 @@ namespace Assets.Scripts
 	
         void Update () {
             _focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _markerSpeed);
+			GetComponent<Animation>()["elf arm work"].speed = GetComponent<Animation>()["elf arm work"].speed * 0.99f;
         }
 
         public override string GetTargetType()
@@ -25,11 +26,13 @@ namespace Assets.Scripts
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
             _focusMarker.gameObject.SetActive(true);
+			GetComponent<Animation>()["elf arm work"].speed = 1;
         }
 
         public override void OnLookUpdate()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+			GetComponent<Animation>()["elf arm work"].speed = GetComponent<Animation>()["elf arm work"].speed * 1.1f;
         }
 
         public override void OnLookEnd()
