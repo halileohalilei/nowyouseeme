@@ -12,6 +12,6 @@ function Update () {
 }
 
 function OnCollisionEnter(collision: Collision) {
-	Debug.Log("gift collides");
+//	Debug.Log("gift collides");
 	transform.rotation = Random.rotation;
 }
