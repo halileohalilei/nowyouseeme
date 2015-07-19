@@ -27,14 +27,14 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(false);
 
             _lastTimeStep = Time.time;
-<<<<<<< HEAD
+
 			//hammerSound = AudioClip[Random.Range(0,hammerSoundArray.Length)];
 
 			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
-=======
+
 
             _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
->>>>>>> origin/master
+
         }
 	
         void Update ()
