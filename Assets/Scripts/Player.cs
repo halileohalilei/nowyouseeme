@@ -17,31 +17,50 @@ namespace Assets.Scripts
             if (Physics.Raycast(transform.position, fwd, out hit, 30))
             {
                 GameObject hitObject = hit.transform.gameObject;
-                Target target = hitObject.GetComponent<Target>();
-                String targetType = target.GetTargetType();
-                if (targetType == "Elf")
+                Target hitObjectTarget = hitObject.GetComponent<Target>();
+                if (hitObjectTarget != null)
                 {
                     if (_lastTarget == null)
                     {
                         _lastTarget = hitObject;
-                        Debug.Log("New elf targeted!");
+                        hitObjectTarget.OnLookStart();
                     }
                     else
                     {
-                        Debug.Log("Looking at the same elf!");
+                        if (_lastTarget != hitObject)
+                        {
+                            Target lastTarget = _lastTarget.GetComponent<Target>();
+                            lastTarget.OnLookEnd();
+                            _lastTarget = hitObject;
+                            hitObjectTarget.OnLookStart();
+                        }
+                        else
+                        {
+                            Target lastTarget = _lastTarget.GetComponent<Target>();
+                            lastTarget.OnLookUpdate();
+                        }
                     }
+                    
                 }
                 else
                 {
                     if (_lastTarget != null)
                     {
+                        Target t = _lastTarget.GetComponent<Target>();
+                        t.OnLookEnd();
+                        Debug.Log("Look ended on target of type: " + t.GetTargetType());
                         _lastTarget = null;
-                        Debug.Log("Looked away!");
                     }
-                    else
-                    {
-                        Debug.Log("Still looking somewhere else!");
-                    }
+                }
+            }
+            else
+            {
+                if (_lastTarget != null)
+                {
+                    Target t = _lastTarget.GetComponent<Target>();
+                    t.OnLookEnd();
+                    Debug.Log("Look ended on target of type: " + t.GetTargetType());
+                    _lastTarget = null;
                 }
             }
         }
