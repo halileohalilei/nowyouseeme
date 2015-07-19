@@ -15,8 +15,6 @@ namespace Assets.Scripts
 
         private BloodAndGoreFactory _factory;
 
-        public GameObject BloodAndGoreParticles;
-
 		public AudioClip[] hammerSoundArray;
 		private AudioClip hammerSound;
 
@@ -81,7 +79,7 @@ namespace Assets.Scripts
         public override void OnLookUpdate()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
-            _armAnimation.speed = _armAnimation.speed*1.5f;
+            _armAnimation.speed = _armAnimation.speed*1.2f;
 
             if (_armAnimation.speed > _pointOfNoReturnThreshold)
             {
