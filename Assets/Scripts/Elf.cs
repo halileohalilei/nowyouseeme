@@ -13,6 +13,8 @@ namespace Assets.Scripts
         private bool _pointOfNoReturn;
         [SerializeField] private float _pointOfNoReturnThreshold;
 
+        private BloodAndGoreFactory _factory;
+
         public GameObject BloodAndGoreParticles;
 
         void Start ()
@@ -22,6 +24,8 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(false);
 
             _lastTimeStep = Time.time;
+
+            _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
         }
 	
         void Update ()
@@ -45,7 +49,7 @@ namespace Assets.Scripts
 
             if (_pointOfNoReturn)
             {
-                GameObject bloodAndGoreParticles = Instantiate(BloodAndGoreParticles, transform.position, Quaternion.identity) as GameObject;
+                _factory.CreateBloodAndGore(transform.position);
                 Destroy(gameObject);
             }
         }
