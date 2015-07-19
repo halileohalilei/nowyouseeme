@@ -6,18 +6,9 @@ namespace Assets.Scripts
 {
     public abstract class Target : MonoBehaviour
     {
-        
-        void Start()
-        {
-
-        }
-
-        void Update()
-        {
-
-        }
-
         public abstract String GetTargetType();
-
+        public abstract void OnLookStart();
+        public abstract void OnLookUpdate();
+        public abstract void OnLookEnd();
     }
 }
