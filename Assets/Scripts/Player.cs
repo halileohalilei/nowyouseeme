@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -16,10 +17,31 @@ namespace Assets.Scripts
             if (Physics.Raycast(transform.position, fwd, out hit, 30))
             {
                 GameObject hitObject = hit.transform.gameObject;
-                Elf elf = hitObject.GetComponent<Elf>();
-                if (elf != null)
+                Target target = hitObject.GetComponent<Target>();
+                String targetType = target.GetTargetType();
+                if (targetType == "Elf")
                 {
-                    
+                    if (_lastTarget == null)
+                    {
+                        _lastTarget = hitObject;
+                        Debug.Log("New elf targeted!");
+                    }
+                    else
+                    {
+                        Debug.Log("Looking at the same elf!");
+                    }
+                }
+                else
+                {
+                    if (_lastTarget != null)
+                    {
+                        _lastTarget = null;
+                        Debug.Log("Looked away!");
+                    }
+                    else
+                    {
+                        Debug.Log("Still looking somewhere else!");
+                    }
                 }
             }
         }

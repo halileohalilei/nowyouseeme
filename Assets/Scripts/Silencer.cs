@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts
+﻿namespace Assets.Scripts
 {
-    public class Elf : Target {
+    public class Silencer : Target {
 
         // Use this for initialization
         void Start () {
@@ -11,12 +9,12 @@ namespace Assets.Scripts
 	
         // Update is called once per frame
         void Update () {
-	        
+	
         }
 
         public override string GetTargetType()
         {
-            return "Elf";
+            return "Silencer";
         }
     }
 }
