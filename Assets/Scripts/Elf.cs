@@ -13,6 +13,8 @@ namespace Assets.Scripts
         private bool _pointOfNoReturn;
         [SerializeField] private float _pointOfNoReturnThreshold;
 
+        private BloodAndGoreFactory _factory;
+
         public GameObject BloodAndGoreParticles;
 
 		public AudioClip[] hammerSoundArray;
@@ -25,9 +27,14 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(false);
 
             _lastTimeStep = Time.time;
+<<<<<<< HEAD
 			//hammerSound = AudioClip[Random.Range(0,hammerSoundArray.Length)];
 
 			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
+=======
+
+            _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
+>>>>>>> origin/master
         }
 	
         void Update ()
@@ -51,13 +58,7 @@ namespace Assets.Scripts
 
             if (_pointOfNoReturn)
             {
-                GameObject bloodAndGoreParticles = Instantiate(BloodAndGoreParticles, transform.position, Quaternion.identity) as GameObject;
-                if (bloodAndGoreParticles != null)
-                {
-                    bloodAndGoreParticles.transform.parent = transform;
-                    bloodAndGoreParticles.transform.position = Vector3.zero;
-                    bloodAndGoreParticles.transform.parent = null;
-                }
+                _factory.CreateBloodAndGore(transform.position);
                 Destroy(gameObject);
             }
         }
