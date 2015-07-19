@@ -46,12 +46,6 @@ namespace Assets.Scripts
             if (_pointOfNoReturn)
             {
                 GameObject bloodAndGoreParticles = Instantiate(BloodAndGoreParticles, transform.position, Quaternion.identity) as GameObject;
-                if (bloodAndGoreParticles != null)
-                {
-                    bloodAndGoreParticles.transform.parent = transform;
-                    bloodAndGoreParticles.transform.position = Vector3.zero;
-                    bloodAndGoreParticles.transform.parent = null;
-                }
                 Destroy(gameObject);
             }
         }
