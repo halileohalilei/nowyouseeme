@@ -34,11 +34,6 @@ namespace Assets.Scripts
                             _lastTarget = hitObject;
                             hitObjectTarget.OnLookStart();
                         }
-                        else
-                        {
-                            Target lastTarget = _lastTarget.GetComponent<Target>();
-                            lastTarget.OnLookUpdate();
-                        }
                     }
                     
                 }
