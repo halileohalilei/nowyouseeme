@@ -16,7 +16,7 @@ namespace Assets.Scripts
         private BloodAndGoreFactory _factory;
 
 		public AudioClip[] hammerSoundArray;
-		private AudioClip hammerSound;
+		public AudioClip hammerSound;
 
         void Start ()
         {
