@@ -7,6 +7,7 @@ namespace Assets.Scripts
 
         private Rigidbody _rigidbody;
         [SerializeField] private float _force;
+		public Transform particleEffect;
 
 
         // Use this for initialization
@@ -22,7 +23,7 @@ namespace Assets.Scripts
 
         void OnCollisionEnter(Collision collision)
         {
-            transform.rotation = Random.rotation;
+            //transform.rotation = Random.rotation;
         }
 
         public override string GetTargetType()
@@ -33,6 +34,7 @@ namespace Assets.Scripts
         public override void OnLookStart()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+			Instantiate(particleEffect, transform.position, Quaternion.identity);
 			Destroy(gameObject);
         }
 
