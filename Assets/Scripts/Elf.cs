@@ -17,6 +17,9 @@ namespace Assets.Scripts
 
 		public AudioClip[] hammerSoundArray;
 		public AudioClip hammerSound;
+		public Transform giftPrefab;
+		public int numHammerHits;
+		public Transform giftSpawnPos;
 
         void Start ()
         {
@@ -32,7 +35,7 @@ namespace Assets.Scripts
 
 
             _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
-
+			numHammerHits = 0;
         }
 	
         void Update ()
@@ -47,21 +50,27 @@ namespace Assets.Scripts
                 }
                 else
                 {
-                    _armAnimation.speed = _armAnimation.speed*0.9f;
+                    _armAnimation.speed = _armAnimation.speed*0.95f;
                 }
             }
 
 
-            _focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _markerSpeed);
+            //_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _markerSpeed);
+			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 25);
 
             if (_pointOfNoReturn)
             {
                 _factory.CreateBloodAndGore(transform.position);
                 Destroy(gameObject);
             }
-        }
 
-        public override string GetTargetType()
+			if (numHammerHits >= 10)
+			{
+				SpawnGift();
+			}
+		}
+		
+		public override string GetTargetType()
         {
             return "Elf";
         }
@@ -97,6 +106,19 @@ namespace Assets.Scripts
 		void PlayHammerSound()
 		{
 			GetComponent<AudioSource>().Play();
+			numHammerHits += 1;
+			//Debug.Log("numHammerHits = " + numHammerHits);
 		}
-    }
+
+		void SpawnGift()
+		{
+			Vector3 loc = Random.insideUnitSphere;
+			loc.y += 2;
+			Quaternion rot = Random.rotation;
+			Transform instance = Instantiate(giftPrefab, giftSpawnPos.transform.position, rot) as Transform;
+			Rigidbody rb = instance.GetComponent<Rigidbody>();
+			rb.AddExplosionForce(500, giftSpawnPos.transform.position + loc, 100, 3.0F);
+			numHammerHits = 0;
+		}
+	}
 }
