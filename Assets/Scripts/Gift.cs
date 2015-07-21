@@ -11,13 +11,13 @@ namespace Assets.Scripts
 
         // Use this for initialization
         void Start () {
-	        _rigidbody = gameObject.GetComponent<Rigidbody>();
-	        transform.rotation = Random.rotation;
+	        //_rigidbody = gameObject.GetComponent<Rigidbody>();
+	        //transform.rotation = Random.rotation;
         }
 	
         // Update is called once per frame
         void Update () {
-	        _rigidbody.AddRelativeForce(transform.forward * _force);
+	        //_rigidbody.AddRelativeForce(transform.forward * _force);
         }
 
         void OnCollisionEnter(Collision collision)
@@ -33,6 +33,7 @@ namespace Assets.Scripts
         public override void OnLookStart()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+			Destroy(gameObject);
         }
 
         public override void OnLookUpdate()
