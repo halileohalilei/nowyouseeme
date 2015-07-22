@@ -55,7 +55,6 @@ namespace Assets.Scripts
             }
 
 
-            //_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _markerSpeed);
 			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 25);
 
             if (_pointOfNoReturn)
@@ -82,7 +81,6 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(true);
             _armAnimation.speed = Mathf.Max(_armAnimation.speed, 0.5f);
             _lastTimeStep = 0f;
-//			GetComponent<Animation>()["elf arm work"].speed = 1;
         }
 
         public override void OnLookUpdate()
@@ -107,7 +105,6 @@ namespace Assets.Scripts
 		{
 			GetComponent<AudioSource>().Play();
 			numHammerHits += 1;
-			//Debug.Log("numHammerHits = " + numHammerHits);
 		}
 
 		void SpawnGift()
