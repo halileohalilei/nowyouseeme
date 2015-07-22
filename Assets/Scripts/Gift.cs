@@ -38,9 +38,9 @@ namespace Assets.Scripts
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
 			Instantiate(particleEffect, transform.position, Quaternion.identity);
 			Vector3 smallGiftSpawnPos;
-			smallGiftSpawnPos.x = 1.78f + Random.Range(-0.5f,0.5f);
-			smallGiftSpawnPos.y = 6.0f;
-			smallGiftSpawnPos.z = -27.07f + Random.Range(-0.5f,0.5f);
+			smallGiftSpawnPos.x = 1.78f + Random.Range(-2.0f,2.0f);
+			smallGiftSpawnPos.y = 10.0f;
+			smallGiftSpawnPos.z = -27.07f + Random.Range(-2.0f,2.0f);
 			Instantiate(smallGift, smallGiftSpawnPos, Quaternion.identity);
 			Destroy(gameObject);
         }
