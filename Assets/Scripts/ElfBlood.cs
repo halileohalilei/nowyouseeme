@@ -6,7 +6,7 @@ namespace Assets.Scripts
 
         public GameObject[] candyArray;
         public Vector3 ExplosionPosition;
-        int numCandy = 20;
+        int numCandy = 10;
 
         // Use this for initialization
         void Start ()
