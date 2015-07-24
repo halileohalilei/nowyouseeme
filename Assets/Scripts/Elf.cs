@@ -79,7 +79,8 @@ namespace Assets.Scripts
             }
 
 
-			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 25);
+			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 150);
+
 
             if (_pointOfNoReturn)
             {
@@ -108,14 +109,14 @@ namespace Assets.Scripts
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
 			_isUnderGaze = true;
 			_focusMarker.gameObject.SetActive(true);
-            _armAnimation.speed = Mathf.Max(_armAnimation.speed, 0.5f);
+            _armAnimation.speed = Mathf.Max(_armAnimation.speed, 1.0f);
             _lastTimeStep = 0f;
         }
 
         public override void OnLookUpdate()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
-            _armAnimation.speed = _armAnimation.speed*1.2f;
+            _armAnimation.speed = _armAnimation.speed*1.5f;
 
             if (_armAnimation.speed > _pointOfNoReturnThreshold)
             {
