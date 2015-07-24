@@ -21,6 +21,20 @@ namespace Assets.Scripts
 		public int numHammerHits;
 		public Transform giftSpawnPos;
 
+		// for turning the Elf to color.black when he's on fire
+		public bool burnToBlack = true;
+		private Color elfSkinColor = new Color(0.97f, 0.61f, 0.65f);
+		private Renderer torsoRenderer;
+		private Renderer legLeftRenderer;
+		private Renderer legRightRenderer;
+		private Renderer armLeftRenderer;
+		private Renderer armRightRenderer;
+		private Renderer handLeftRenderer;
+		private Renderer handRightRenderer;
+		private Renderer headRenderer;
+		private Renderer hatRenderer;
+
+
         void Start ()
         {
             _focusMarker = transform.Find("focus marker").gameObject;
@@ -29,14 +43,24 @@ namespace Assets.Scripts
 
             _lastTimeStep = Time.time;
 
-			//hammerSound = AudioClip[Random.Range(0,hammerSoundArray.Length)];
 
 			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
 
 
             _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
 			numHammerHits = 0;
-        }
+
+			// for turning the Elf to color.black when he's on fire//torsoRenderer = torso.GetComponent<Renderer>();
+			torsoRenderer = transform.Find("torso").GetComponent<Renderer>();
+			legLeftRenderer = transform.Find("leg - left").GetComponent<Renderer>();
+			legRightRenderer = transform.Find("leg - right").GetComponent<Renderer>();
+			armLeftRenderer = transform.Find("arm - left").GetComponent<Renderer>();
+			armRightRenderer = transform.Find("Arm Right Joint/arm - right").GetComponent<Renderer>();
+			handLeftRenderer = transform.Find("hand - left").GetComponent<Renderer>();
+			handRightRenderer = transform.Find("Arm Right Joint/hand - right").GetComponent<Renderer>();
+			headRenderer = transform.Find("head").GetComponent<Renderer>();
+			hatRenderer = transform.Find("elf hat").GetComponent<Renderer>();
+		}
 	
         void Update ()
         {
@@ -47,9 +71,9 @@ namespace Assets.Scripts
                 if (_isUnderGaze)
                 {
                     OnLookUpdate();
-                }
-                else
-                {
+				}
+					else
+				{
                     _armAnimation.speed = _armAnimation.speed*0.95f;
                 }
             }
@@ -67,6 +91,11 @@ namespace Assets.Scripts
 			{
 				SpawnGift();
 			}
+
+			if (burnToBlack)
+			{
+				BurnToBlack();
+			}
 		}
 		
 		public override string GetTargetType()
@@ -77,8 +106,8 @@ namespace Assets.Scripts
         public override void OnLookStart()
         {
             Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
-            _isUnderGaze = true;
-            _focusMarker.gameObject.SetActive(true);
+			_isUnderGaze = true;
+			_focusMarker.gameObject.SetActive(true);
             _armAnimation.speed = Mathf.Max(_armAnimation.speed, 0.5f);
             _lastTimeStep = 0f;
         }
@@ -116,6 +145,19 @@ namespace Assets.Scripts
 			Rigidbody rb = instance.GetComponent<Rigidbody>();
 			rb.AddExplosionForce(500, giftSpawnPos.transform.position + loc, 100, 3.0F);
 			numHammerHits = 0;
+		}
+
+		void BurnToBlack()
+		{
+			torsoRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			legLeftRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			legRightRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			armLeftRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			armRightRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			handLeftRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
+			handRightRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
+			headRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
+			hatRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
 		}
 	}
 }
