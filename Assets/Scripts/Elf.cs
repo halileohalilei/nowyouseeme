@@ -33,6 +33,11 @@ namespace Assets.Scripts
 		private Renderer handRightRenderer;
 		private Renderer headRenderer;
 		private Renderer hatRenderer;
+		private Renderer noseRenderer;
+
+		public Transform headJoint;
+		public Transform lookTarget;
+		public Quaternion originalDirection;
 
 
         void Start ()
@@ -50,7 +55,7 @@ namespace Assets.Scripts
             _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
 			numHammerHits = 0;
 
-			// for turning the Elf to color.black when he's on fire//torsoRenderer = torso.GetComponent<Renderer>();
+			// for turning the Elf to color.black when he's on fire
 			torsoRenderer = transform.Find("torso").GetComponent<Renderer>();
 			legLeftRenderer = transform.Find("leg - left").GetComponent<Renderer>();
 			legRightRenderer = transform.Find("leg - right").GetComponent<Renderer>();
@@ -58,8 +63,11 @@ namespace Assets.Scripts
 			armRightRenderer = transform.Find("Arm Right Joint/arm - right").GetComponent<Renderer>();
 			handLeftRenderer = transform.Find("hand - left").GetComponent<Renderer>();
 			handRightRenderer = transform.Find("Arm Right Joint/hand - right").GetComponent<Renderer>();
-			headRenderer = transform.Find("head").GetComponent<Renderer>();
-			hatRenderer = transform.Find("elf hat").GetComponent<Renderer>();
+			headRenderer = transform.Find("head joint/head").GetComponent<Renderer>();
+			hatRenderer = transform.Find("head joint/elf hat").GetComponent<Renderer>();
+			noseRenderer = transform.Find("head joint/nose").GetComponent<Renderer>();
+
+			originalDirection = transform.Find("head joint").rotation;
 		}
 	
         void Update ()
@@ -97,6 +105,15 @@ namespace Assets.Scripts
 			{
 				BurnToBlack();
 			}
+
+			// this needs to update, but I'm not sure which var needs to be updating... for when Jesus appears
+			Quaternion angleToTarget = Quaternion.LookRotation(lookTarget.transform.position);
+			Debug.Log("angleToTarget = " + angleToTarget);
+			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
+			if (angleDiff < 50) {
+				headJoint.transform.LookAt(lookTarget);
+			}
+			Debug.Log("look diff angle = " + angleDiff);
 		}
 		
 		public override string GetTargetType()
@@ -159,6 +176,7 @@ namespace Assets.Scripts
 			handRightRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
 			headRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
 			hatRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
+			noseRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
 		}
 	}
 }
