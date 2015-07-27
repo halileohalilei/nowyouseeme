@@ -34,6 +34,8 @@ namespace Assets.Scripts
 		private Renderer headRenderer;
 		private Renderer hatRenderer;
 		private Renderer noseRenderer;
+		private Renderer hatBrimRenderer;
+		private Renderer hatBallRenderer;
 
 		public Transform headJoint;
 		public Transform lookTarget;
@@ -66,7 +68,11 @@ namespace Assets.Scripts
 			headRenderer = transform.Find("head joint/head").GetComponent<Renderer>();
 			hatRenderer = transform.Find("head joint/elf hat").GetComponent<Renderer>();
 			noseRenderer = transform.Find("head joint/nose").GetComponent<Renderer>();
+			hatBrimRenderer = transform.Find("head joint/elf hat/brim").GetComponent<Renderer>();
+			hatBallRenderer = transform.Find("head joint/elf hat/ball").GetComponent<Renderer>();
 
+			// The direction the Elf is looking when game starts.  
+			// He looks this direction any time when he can't see Jesus.
 			originalDirection = transform.Find("head joint").rotation;
 		}
 	
@@ -106,7 +112,7 @@ namespace Assets.Scripts
 				BurnToBlack();
 			}
 
-			// Elves will look at Jesus if the head rotation is not unnatural.
+			// Elves will look at Jesus if the head rotation is within normal "human" limits.
 			Quaternion angleToTarget = Quaternion.LookRotation(lookTarget.transform.position);
 			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
 			if (angleDiff < 50) {
@@ -177,6 +183,8 @@ namespace Assets.Scripts
 			headRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
 			hatRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
 			noseRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
+			hatBrimRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
+			hatBallRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
 		}
 	}
 }
