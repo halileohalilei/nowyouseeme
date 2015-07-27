@@ -37,7 +37,7 @@ namespace Assets.Scripts
 
 		public Transform headJoint;
 		public Transform lookTarget;
-		public Quaternion originalDirection;
+		private Quaternion originalDirection;
 
 
         void Start ()
@@ -106,14 +106,14 @@ namespace Assets.Scripts
 				BurnToBlack();
 			}
 
-			// this needs to update, but I'm not sure which var needs to be updating... for when Jesus appears
+			// Elves will look at Jesus if the head rotation is not unnatural.
 			Quaternion angleToTarget = Quaternion.LookRotation(lookTarget.transform.position);
-			Debug.Log("angleToTarget = " + angleToTarget);
 			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
 			if (angleDiff < 50) {
-				headJoint.transform.LookAt(lookTarget);
+				headJoint.transform.LookAt(lookTarget.transform);
+			} else {
+				headJoint.transform.rotation = originalDirection;
 			}
-			Debug.Log("look diff angle = " + angleDiff);
 		}
 		
 		public override string GetTargetType()
