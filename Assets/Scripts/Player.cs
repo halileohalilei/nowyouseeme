@@ -14,7 +14,7 @@ namespace Assets.Scripts
         {
             RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
-            if (Physics.Raycast(transform.position, fwd, out hit, 30))
+            if (Physics.Raycast(transform.position, fwd, out hit, 60))
             {
                 GameObject hitObject = hit.transform.gameObject;
                 Target hitObjectTarget = hitObject.GetComponent<Target>();
