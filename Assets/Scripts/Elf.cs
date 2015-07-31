@@ -46,6 +46,7 @@ namespace Assets.Scripts
         {
             _focusMarker = transform.Find("focus marker").gameObject;
             _armAnimation = GetComponent<Animation>()["elf arm work"];
+			_armAnimation.speed = Random.Range(0.0f,1.0f);
             _focusMarker.gameObject.SetActive(false);
 
             _lastTimeStep = Time.time;
