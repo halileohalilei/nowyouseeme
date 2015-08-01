@@ -39,7 +39,11 @@ public class GUIRayCasting : MonoBehaviour {
 		CBScript = CBackButton.GetComponent<CreditBackButton> ();
 		HSBack = HSBackButton.GetComponent<HighScoreBack> ();
 	}
-	
+
+	public void SetRay()
+	{
+		GUIRay = false;
+	}
 
 	void Update () 
 	{

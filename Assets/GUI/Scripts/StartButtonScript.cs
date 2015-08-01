@@ -18,6 +18,10 @@ public class StartButtonScript : MonoBehaviour {
 	public GameObject AnimationControl;
 	private GUIController AnimScript;
 
+	// Deactive GUI Raycasting
+	public GameObject RayCastingObject;
+	private GUIRayCasting RayScript;
+
 	public void Start()
 	{
 		AnimScript = AnimationControl.GetComponent<GUIController> ();
@@ -35,7 +39,6 @@ public class StartButtonScript : MonoBehaviour {
 				AnimScript.CloseCard();
 				Environment.SetActive (true);
 				Characters.SetActive (true);
-
 				Invoke ("DelayedItems",1.5f);
 			}
 		}
@@ -46,6 +49,8 @@ public class StartButtonScript : MonoBehaviour {
 		SwoopControl SwoopAnim = Camera.GetComponent<SwoopControl>();
 		SwoopAnim.SwoopAnim();
 		ParticleSystemSnow.SetActive (false);
+		GUIRayCasting RayScript = RayCastingObject.GetComponent<GUIRayCasting> ();
+		RayScript.SetRay ();
 	}
 
 	public void StarsOn()
