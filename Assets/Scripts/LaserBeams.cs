@@ -1,33 +1,59 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class LaserBeams : MonoBehaviour {
 
-	public Transform[] targets;
-	public Transform currentTarget;
-	public Transform nextTarget;
-	public Quaternion dir1;
-	public Quaternion dir2;
-	public float startTime = 0.0f;
+	private ArrayList _targets;
+    private Quaternion _targetRotation;
 
-	// Use this for initialization
-	void Start () {
-		currentTarget = targets[Random.Range(0,targets.Length)];
-		nextTarget = targets[Random.Range(0,targets.Length)];
-		dir1 = Quaternion.LookRotation(currentTarget.transform.position - transform.position);
-		dir2 = Quaternion.LookRotation(nextTarget.transform.position - transform.position);
-		transform.LookAt(currentTarget);
+    [SerializeField] private float _speed;
+
+	void Start ()
+	{
+	    Transform tmp = transform.parent.parent.GetChild(2);
+        _targets = new ArrayList();
+	    for (int i = 0; i < tmp.childCount; i++)
+	    {
+	        _targets.Add(tmp.GetChild(i));
+	    }
+        PickNewTarget();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (transform.rotation == dir2) {
-			startTime = Time.time;
-			dir1 = dir2;
-			nextTarget = targets[Random.Range(0,targets.Length)];
-			dir2 = Quaternion.LookRotation(nextTarget.transform.position - transform.position);
-		} else {
-		transform.rotation = Quaternion.Slerp(dir1, dir2, (Time.time - startTime));
-		}
-	}
+	void Update ()
+    {
+        if (Quaternion.Angle(transform.rotation, _targetRotation) < 0.00001f)
+	    {
+	        PickNewTarget();
+//	        _speed += 5f;
+	    }
+	    else
+	    {
+            float angle = Quaternion.Angle(transform.rotation, _targetRotation);
+            float timeToComplete = angle / _speed;
+            float donePercentage = Mathf.Min(1F, Time.deltaTime / timeToComplete);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, donePercentage);
+	    }
+
+        /*RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+	    if (Physics.Raycast(transform.position, fwd, out hit, 60))
+	    {
+	        GameObject hitObject = hit.collider.gameObject;
+	        Elf hitObjectTarget = hitObject.GetComponent<Elf>();
+	        if (hitObjectTarget != null)
+	        {
+                Debug.Log(hit.transform.name);
+                Debug.DrawRay(transform.position, hit.transform.position);
+	            hitObjectTarget.BurnToBlack();
+	        }
+	    }*/
+    }
+
+    void PickNewTarget()
+    {
+        int newTargetIndex = Random.Range(0, _targets.Count);
+        _targetRotation = Quaternion.LookRotation(((Transform) _targets[newTargetIndex]).position - transform.position);
+    }
 }

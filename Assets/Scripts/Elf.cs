@@ -172,7 +172,7 @@ namespace Assets.Scripts
 			numHammerHits = 0;
 		}
 
-		void BurnToBlack()
+		public void BurnToBlack()
 		{
 			torsoRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
 			legLeftRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
