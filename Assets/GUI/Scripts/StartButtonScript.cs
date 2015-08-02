@@ -3,7 +3,7 @@ using System.Collections;
 
 public class StartButtonScript : MonoBehaviour {
 
-	private bool GameOnFlip = false;
+	private bool GameOnFlip;
 	public GameObject StarL;
 	public GameObject StarR;
 	public GameObject Environment;
@@ -31,7 +31,7 @@ public class StartButtonScript : MonoBehaviour {
 
 	public void GameOn()
 	{
-		if (GameOnFlip == true) 
+		if (GameOnFlip) 
 		{
 			if (Input.GetMouseButtonDown(0))
 			{

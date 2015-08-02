@@ -47,7 +47,7 @@ public class GUIRayCasting : MonoBehaviour {
 
 	void Update () 
 	{
-		if (GUIRay == true) 
+		if (GUIRay) 
 		{
 			Ray GRay = new Ray (transform.position,transform.forward);
 			RaycastHit hit;

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HighScoreBack : MonoBehaviour {
 
-	private bool HighScoreBackFlip = false;
+	private bool HighScoreBackFlip;
 	public GameObject StarL;
 	public GameObject StarR;
 	
@@ -18,7 +18,7 @@ public class HighScoreBack : MonoBehaviour {
 	
 	public void HighScoreBackButton()
 	{
-		if (HighScoreBackFlip == true) 
+		if (HighScoreBackFlip) 
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
