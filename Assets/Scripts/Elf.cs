@@ -45,7 +45,7 @@ namespace Assets.Scripts
         void Start ()
         {
             _focusMarker = transform.Find("focus marker").gameObject;
-            _armAnimation = GetComponent<Animation>()["elf arm work"];
+            _armAnimation = GetComponent<Animation>()["elf arm work 2"];
 			_armAnimation.speed = Random.Range(0.0f,1.0f);
             _focusMarker.gameObject.SetActive(false);
 
@@ -60,6 +60,7 @@ namespace Assets.Scripts
 
 			// for turning the Elf to color.black when he's on fire
 			torsoRenderer = transform.Find("torso").GetComponent<Renderer>();
+			Debug.Log("torsoRenderer = " + torsoRenderer);
 			legLeftRenderer = transform.Find("leg - left").GetComponent<Renderer>();
 			legRightRenderer = transform.Find("leg - right").GetComponent<Renderer>();
 			armLeftRenderer = transform.Find("arm - left").GetComponent<Renderer>();
@@ -69,8 +70,8 @@ namespace Assets.Scripts
 			headRenderer = transform.Find("head joint/head").GetComponent<Renderer>();
 			hatRenderer = transform.Find("head joint/elf hat").GetComponent<Renderer>();
 			noseRenderer = transform.Find("head joint/nose").GetComponent<Renderer>();
-			hatBrimRenderer = transform.Find("head joint/elf hat/brim").GetComponent<Renderer>();
-			hatBallRenderer = transform.Find("head joint/elf hat/ball").GetComponent<Renderer>();
+			hatBrimRenderer = transform.Find("head joint/brim").GetComponent<Renderer>();
+			hatBallRenderer = transform.Find("head joint/ball").GetComponent<Renderer>();
 
 			// The direction the Elf is looking when game starts.  
 			// He looks this direction any time when he can't see Jesus.
@@ -174,6 +175,7 @@ namespace Assets.Scripts
 
 		public void BurnToBlack()
 		{
+			  // object not found... can't worry about this right now
 			torsoRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
 			legLeftRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
 			legRightRenderer.material.color = Color.Lerp(Color.green, Color.black, Time.time * 0.1f);
@@ -186,6 +188,7 @@ namespace Assets.Scripts
 			noseRenderer.material.color = Color.Lerp(elfSkinColor, Color.black, Time.time * 0.1f);
 			hatBrimRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
 			hatBallRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
+
 		}
 	}
 }
