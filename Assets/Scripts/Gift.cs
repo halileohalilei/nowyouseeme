@@ -47,12 +47,12 @@ namespace Assets.Scripts
 
         public override void OnLookUpdate()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         public override void OnLookEnd()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
     }
 }

@@ -12,6 +12,9 @@ namespace Assets.Scripts
         [SerializeField] private float _threshold;
         private bool _pointOfNoReturn;
         [SerializeField] private float _pointOfNoReturnThreshold;
+        private bool _isUnderJesusGaze;
+        private float _jesusGazeStartTime;
+        [SerializeField] private float _jesusTolerance;
 
         private BloodAndGoreFactory _factory;
 
@@ -22,7 +25,7 @@ namespace Assets.Scripts
 		public Transform giftSpawnPos;
 
 		// for turning the Elf to color.black when he's on fire
-		public bool burnToBlack = true;
+		[SerializeField] private bool _shouldBurnToBlack = true;
 		private Color elfSkinColor = new Color(0.97f, 0.61f, 0.65f);
 		private Renderer torsoRenderer;
 		private Renderer legLeftRenderer;
@@ -108,13 +111,13 @@ namespace Assets.Scripts
 			{
 				SpawnGift();
 			}
-
-			if (burnToBlack)
-			{
-				BurnToBlack();
-			}
-
-			// Elves will look at Jesus if the head rotation is within normal "human" limits.
+            _shouldBurnToBlack = _isUnderJesusGaze && (Time.time - _jesusGazeStartTime > _jesusTolerance);
+            if (_shouldBurnToBlack)
+            {
+                BurnToBlack();
+            }
+            
+            // Elves will look at Jesus if the head rotation is within normal "human" limits.
 			Quaternion angleToTarget = Quaternion.LookRotation(lookTarget.transform.position);
 			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
 			if (angleDiff < 50) {
@@ -131,7 +134,7 @@ namespace Assets.Scripts
 
         public override void OnLookStart()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
 			_isUnderGaze = true;
 			_focusMarker.gameObject.SetActive(true);
             _armAnimation.speed = Mathf.Max(_armAnimation.speed, 1.0f);
@@ -140,7 +143,7 @@ namespace Assets.Scripts
 
         public override void OnLookUpdate()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
             _armAnimation.speed = _armAnimation.speed*1.5f;
 
             if (_armAnimation.speed > _pointOfNoReturnThreshold)
@@ -151,7 +154,7 @@ namespace Assets.Scripts
 
         public override void OnLookEnd()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
+//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
             _isUnderGaze = false;
             _focusMarker.gameObject.SetActive(false);
         }
@@ -190,5 +193,17 @@ namespace Assets.Scripts
 			hatBallRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
 
 		}
+
+        void OnTriggerEnter(Collider other)
+        {
+            _isUnderJesusGaze = true;
+            _jesusGazeStartTime = Time.time;
+            Debug.Log(gameObject.name + "That's my trigger!");
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            _isUnderJesusGaze = false;
+        }
 	}
 }

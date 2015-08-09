@@ -56,4 +56,9 @@ public class LaserBeams : MonoBehaviour {
         int newTargetIndex = Random.Range(0, _targets.Count);
         _targetRotation = Quaternion.LookRotation(((Transform) _targets[newTargetIndex]).position - transform.position);
     }
+
+//    void OnTriggerEnter(Collider other)
+//    {
+//        Debug.Log("THAT'S MY TRIGGER");
+//    }
 }
