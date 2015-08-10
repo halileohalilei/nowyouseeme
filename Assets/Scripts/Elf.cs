@@ -44,9 +44,12 @@ namespace Assets.Scripts
 		public Transform lookTarget;
 		private Quaternion originalDirection;
 
+        private ILaserDelegate _laserDelegate;
 
         void Start ()
         {
+            _laserDelegate = GameObject.Find("Laser Beam Base").GetComponent<LaserBeams>();
+
             _focusMarker = transform.Find("focus marker").gameObject;
             _armAnimation = GetComponent<Animation>()["elf arm work 2"];
 			_armAnimation.speed = Random.Range(0.0f,1.0f);
@@ -97,15 +100,7 @@ namespace Assets.Scripts
                 }
             }
 
-
 			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 150);
-
-
-            if (_pointOfNoReturn)
-            {
-                _factory.CreateBloodAndGore(transform.position);
-                Destroy(gameObject);
-            }
 
 			if (numHammerHits >= 10)
 			{
@@ -125,6 +120,13 @@ namespace Assets.Scripts
 			} else {
 				headJoint.transform.rotation = originalDirection;
 			}
+
+            if (_pointOfNoReturn)
+            {
+                _laserDelegate.OnElfDestroyed(transform);
+                _factory.CreateBloodAndGore(transform.position);
+                Destroy(gameObject);
+            }
 		}
 		
 		public override string GetTargetType()
