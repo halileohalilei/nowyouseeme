@@ -198,7 +198,6 @@ namespace Assets.Scripts
         {
             _isUnderJesusGaze = true;
             _jesusGazeStartTime = Time.time;
-            Debug.Log(gameObject.name + "That's my trigger!");
         }
 
         void OnTriggerExit(Collider other)
