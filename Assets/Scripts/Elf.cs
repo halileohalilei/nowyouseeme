@@ -16,7 +16,8 @@ namespace Assets.Scripts
         private float _jesusGazeStartTime;
         [SerializeField] private float _jesusTolerance;
 
-        private BloodAndGoreFactory _factory;
+        private BloodAndGoreFactory _bloodAndGoreFactory;
+        private GiftFactory _giftFactory;
 
 		public AudioClip[] hammerSoundArray;
 		public AudioClip hammerSound;
@@ -60,8 +61,8 @@ namespace Assets.Scripts
 
 			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
 
-
-            _factory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
+            _giftFactory = GameObject.Find("Gift Factory").GetComponent<GiftFactory>();
+            _bloodAndGoreFactory = GameObject.Find("Blood And Gore Factory").GetComponent<BloodAndGoreFactory>();
 			numHammerHits = 0;
 
 			// for turning the Elf to color.black when he's on fire
@@ -124,7 +125,7 @@ namespace Assets.Scripts
             if (_pointOfNoReturn)
             {
                 _laserDelegate.OnElfDestroyed(transform);
-                _factory.CreateBloodAndGore(transform.position);
+                _bloodAndGoreFactory.CreateBloodAndGore(transform.position);
                 Destroy(gameObject);
             }
 		}
@@ -168,14 +169,15 @@ namespace Assets.Scripts
 		}
 
 		void SpawnGift()
-		{
-			Vector3 loc = Random.insideUnitSphere;
-			loc.y += 2;
-			Quaternion rot = Random.rotation;
-			Transform instance = Instantiate(giftPrefab, giftSpawnPos.transform.position, rot) as Transform;
-			Rigidbody rb = instance.GetComponent<Rigidbody>();
-			rb.AddExplosionForce(500, giftSpawnPos.transform.position + loc, 100, 3.0F);
-			numHammerHits = 0;
+        {
+            numHammerHits = 0;
+            _giftFactory.CreateGift(giftSpawnPos.position);
+//			Vector3 loc = Random.insideUnitSphere;
+//			loc.y += 2;
+//			Quaternion rot = Random.rotation;
+//			Transform instance = Instantiate(giftPrefab, giftSpawnPos.transform.position, rot) as Transform;
+//			Rigidbody rb = instance.GetComponent<Rigidbody>();
+//			rb.AddExplosionForce(500, giftSpawnPos.transform.position + loc, 100, 3.0F);
 		}
 
 		public void BurnToBlack()

@@ -6,11 +6,9 @@ namespace Assets.Scripts
     {
 
         private Rigidbody _rigidbody;
-        [SerializeField] private float _force;
-		public Transform particleEffect;
-		public Transform smallGift;
-		public Transform giftToSleighLocation;
+        private GiftFactory _giftFactory;
 
+        public GiftFactory GiftFactory { set; get; }
 
         // Use this for initialization
         void Start () {
@@ -35,13 +33,8 @@ namespace Assets.Scripts
 
         public override void OnLookStart()
         {
-            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
-			Instantiate(particleEffect, transform.position, Quaternion.identity);
-			Vector3 smallGiftSpawnPos;
-			smallGiftSpawnPos.x = 1.78f + Random.Range(-2.0f,2.0f);
-			smallGiftSpawnPos.y = 10.0f;
-			smallGiftSpawnPos.z = -27.07f + Random.Range(-2.0f,2.0f);
-			Instantiate(smallGift, smallGiftSpawnPos, Quaternion.identity);
+            GiftFactory.CreateSmallGift(transform.position);
+
 			Destroy(gameObject);
         }
 
