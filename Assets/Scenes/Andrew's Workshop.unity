@@ -3008,7 +3008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a505bda7ec1964522a03622149672493, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .49000001
+      value: 1.75999999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a505bda7ec1964522a03622149672493, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3040,7 +3040,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a505bda7ec1964522a03622149672493, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a505bda7ec1964522a03622149672493, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a505bda7ec1964522a03622149672493, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a505bda7ec1964522a03622149672493, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a505bda7ec1964522a03622149672493, type: 3}
@@ -3346,6 +3358,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 703119056}
   m_RootOrder: 0
+--- !u!1 &585746291 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100014, guid: 0ee4c2fae0af64494862cc1e09bc9620, type: 3}
+  m_PrefabInternal: {fileID: 822484555}
+--- !u!65 &585746295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585746291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 118.110237, y: 10.7299995, z: 98.4252167}
+  m_Center: {x: -59.0551186, y: -6.6500001, z: 49.2126083}
 --- !u!4 &615561858 stripped
 Transform:
   m_PrefabParentObject: {fileID: 425588, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -7946,9 +7974,9 @@ AudioSource:
   Loop: 0
   Mute: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -9375,6 +9403,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1783283349}
   m_Mesh: {fileID: 4300024, guid: 8672f927eabc34da282b300f693efc0f, type: 3}
+--- !u!1 &1792295707 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100014, guid: 0ee4c2fae0af64494862cc1e09bc9620, type: 3}
+  m_PrefabInternal: {fileID: 1611498839}
+--- !u!65 &1792295711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1792295707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 118.110237, y: 11.2200003, z: 98.4252167}
+  m_Center: {x: -59.0551186, y: -5.80000019, z: 49.2126083}
 --- !u!4 &1795693558 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400014, guid: 0ee4c2fae0af64494862cc1e09bc9620, type: 3}
@@ -10694,13 +10738,25 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a505bda7ec1964522a03622149672493, type: 3}
   m_PrefabInternal: {fileID: 552561550}
+--- !u!114 &2022199478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022199476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 011e4126ca0d54f6d88c6b632dff352e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 15
 --- !u!82 &2022199479
 AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022199476}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e2fd454e8a36546caa6c6d879535238e, type: 3}
@@ -10710,9 +10766,9 @@ AudioSource:
   Loop: 0
   Mute: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 300
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -10786,6 +10842,33 @@ AudioReverbFilter:
   m_LFReference: 250
   m_ReflectionsDelay: 0
   m_ReverbPreset: 3
+--- !u!65 &2022199481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022199476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.04999995, y: 1.26999998, z: .569999993}
+  m_Center: {x: 0, y: .189999998, z: 0}
+--- !u!54 &2022199482
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022199476}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2055712531
 GameObject:
   m_ObjectHideFlags: 0

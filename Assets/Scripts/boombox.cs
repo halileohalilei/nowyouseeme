@@ -17,7 +17,7 @@ public class boombox : MonoBehaviour {
 		_rigidbody.AddRelativeForce(transform.forward * _force);
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnCollisionStay(Collision collision)
 	{
 		transform.rotation = Random.rotation;
 	}
