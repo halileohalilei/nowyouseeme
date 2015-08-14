@@ -10,6 +10,7 @@ TagManager:
   - Quit
   - HighScoreBack
   - CreditsBack
+  - Elf
   layers:
   - Default
   - TransparentFX

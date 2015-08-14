@@ -6,16 +6,30 @@ namespace Assets.Scripts
     public class Player : MonoBehaviour
     {
         private GameObject _lastTarget;
-        void Start () {
-	
+		public GameObject SoundManager;
+		private MasterSoundScript SoundScript;
+
+        void Start () 
+		{
+			SoundScript = SoundManager.GetComponent<MasterSoundScript> ();
         }
 	
         void Update ()
         {
-            RaycastHit hit;
+
+			RaycastHit hit;
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             if (Physics.Raycast(transform.position, fwd, out hit, 60))
             {
+				// SOUND COMPONENT CALLS SOUNDMANAGER SCRIPT
+				if (hit.collider.CompareTag("Elf"))	
+				{
+					SoundScript.AcknowledgeActivator();
+					SoundScript.BeingPushedActivator();
+				}
+
+
+
                 GameObject hitObject = hit.transform.gameObject;
                 Target hitObjectTarget = hitObject.GetComponent<Target>();
                 if (hitObjectTarget != null)
@@ -58,6 +72,7 @@ namespace Assets.Scripts
                     _lastTarget = null;
                 }
             }
+
         }
     }
 }
