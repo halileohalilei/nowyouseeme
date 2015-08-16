@@ -3,17 +3,16 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public interface ILaserDelegate
+
+    public class LaserBeams : MonoBehaviour
     {
-        void OnElfDestroyed(Transform elf);
-    }
-
-    public class LaserBeams : MonoBehaviour, ILaserDelegate {
-
         private ArrayList _targets;
-        private Quaternion _targetRotation;
+        Quaternion _targetRotation;
 
-        [SerializeField] private float _speed;
+        private Jesus _jesus;
+
+        [SerializeField] private float _currentSpeed;
+        [SerializeField] private float _initialSpeed;
         [SerializeField] private float _incrementalSpeed;
 
         private bool _isVisible;
@@ -26,16 +25,19 @@ namespace Assets.Scripts
             }
             get { return _isVisible; }
         }
+
+        public Quaternion TargetRotation
+        {
+            get { return _targetRotation; }
+            set { _targetRotation = value; }
+        }
+
         void Start ()
         {
-            Transform tmp = transform.parent.parent.parent.GetChild(1); //bad programming
-            _targets = new ArrayList();
-            for (int i = 0; i < tmp.childCount; i++)
-            {
-                _targets.Add(tmp.GetChild(i));
-            }
+            _jesus = transform.parent.parent.GetComponent<Jesus>();
+
             IsVisible = true;
-            PickNewTarget();
+            _targetRotation = _jesus.PickNewTarget();
         }
 	
         void Update ()
@@ -44,13 +46,13 @@ namespace Assets.Scripts
             {
                 if (Quaternion.Angle(transform.rotation, _targetRotation) < 0.1f)
                 {
-                    PickNewTarget();
-                    _speed += _incrementalSpeed;
+                    _targetRotation = _jesus.PickNewTarget();
+                    _currentSpeed += _incrementalSpeed;
                 }
                 else
                 {
                     float angle = Quaternion.Angle(transform.rotation, _targetRotation);
-                    float timeToComplete = angle/_speed;
+                    float timeToComplete = angle/_currentSpeed;
                     float donePercentage = Mathf.Min(1F, Time.deltaTime/timeToComplete);
 
                     transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, donePercentage);
@@ -58,19 +60,9 @@ namespace Assets.Scripts
             }
         }
 
-        public void PickNewTarget()
+        public void SetSpeedBackToMin()
         {
-            if (_targets.Count > 0)
-            {
-                int newTargetIndex = Random.Range(0, _targets.Count);
-                _targetRotation = Quaternion.LookRotation(((Transform) _targets[newTargetIndex]).position - transform.position);
-            }
+            _currentSpeed = _initialSpeed;
         }
-
-        public void OnElfDestroyed(Transform elf)
-        {
-            _targets.Remove(elf);
-        }
-        
     }
 }

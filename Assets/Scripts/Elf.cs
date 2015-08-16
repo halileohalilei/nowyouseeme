@@ -45,11 +45,11 @@ namespace Assets.Scripts
 		public Transform lookTarget;
 		private Quaternion originalDirection;
 
-        private ILaserDelegate _laserDelegate;
+        private IJesusDelegate _jesusDelegate;
 
         void Start ()
         {
-            _laserDelegate = GameObject.Find("Laser Beam Base").GetComponent<LaserBeams>();
+            _jesusDelegate = GameObject.Find("Jesus").GetComponent<Jesus>();
 
             _focusMarker = transform.Find("focus marker").gameObject;
             _armAnimation = GetComponent<Animation>()["elf arm work 2"];
@@ -124,7 +124,7 @@ namespace Assets.Scripts
 
             if (_pointOfNoReturn)
             {
-                _laserDelegate.OnElfDestroyed(transform);
+                _jesusDelegate.OnElfDestroyed(transform);
                 _bloodAndGoreFactory.CreateBloodAndGore(transform.position);
                 Destroy(gameObject);
             }
