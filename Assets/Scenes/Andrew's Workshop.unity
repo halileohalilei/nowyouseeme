@@ -4666,7 +4666,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!114 &674485408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8928,7 +8927,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!114 &1318695572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13576,9 +13574,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2022199476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 011e4126ca0d54f6d88c6b632dff352e, type: 3}
+  m_Script: {fileID: 11500000, guid: 688ef6cdbc1387f4eb0928a2503a1d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 15
 --- !u!82 &2022199479
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13739,7 +13738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2055712532
 Transform:
   m_ObjectHideFlags: 0

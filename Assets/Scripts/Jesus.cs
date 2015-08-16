@@ -96,6 +96,12 @@ namespace Assets.Scripts
                 _jesusParts.gameObject.SetActive(false);
                 DetermineNextSpawnTime();
                 _laserBeamsComponent.SetSpeedBackToMin();
+
+				foreach (Transform t in _targets)
+				{
+					Elf elf = t.GetComponent<Elf>();
+					elf.StopWorking();
+				}
             }
         }
 

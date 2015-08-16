@@ -210,5 +210,10 @@ namespace Assets.Scripts
         {
             _isUnderJesusGaze = false;
         }
+
+		public void StopWorking()
+		{
+			_armAnimation.speed = 0f;
+		}
 	}
 }
