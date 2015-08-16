@@ -103,7 +103,7 @@ namespace Assets.Scripts
                 {
                     OnLookUpdate();
 				}
-					else
+				else
 				{
                     _armAnimation.speed = _armAnimation.speed*0.95f;
                 }

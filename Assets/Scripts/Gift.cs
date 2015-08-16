@@ -34,7 +34,7 @@ namespace Assets.Scripts
         public override void OnLookStart()
         {
             GiftFactory.CreateSmallGift(transform.position);
-
+			GameData.GetCurrentGameData ().IncrementPresentCount ();
 			Destroy(gameObject);
         }
 
