@@ -9,7 +9,8 @@ namespace Assets.Scripts
 
         public GameObject CreateBloodAndGore(Vector3 pos)
         {
-            GameObject bloodAndGoreParticles = Instantiate(_elfBloodAndGore, pos, Quaternion.identity) as GameObject;
+            pos.y += 3;
+			GameObject bloodAndGoreParticles = Instantiate(_elfBloodAndGore, pos, Quaternion.identity) as GameObject;
             return bloodAndGoreParticles;
         }
 
