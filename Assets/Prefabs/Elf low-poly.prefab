@@ -1613,6 +1613,10 @@ Prefab:
       propertyPath: lookTarget
       value: 
       objectReference: {fileID: 407490, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178976}
