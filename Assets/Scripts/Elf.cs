@@ -27,6 +27,7 @@ namespace Assets.Scripts
 
 		// for turning the Elf to color.black when he's on fire
 		[SerializeField] private bool _shouldBurnToBlack = true;
+		private bool _isTurnedToBlack = false;
 		private Color elfSkinColor = new Color(0.97f, 0.61f, 0.65f);
 		private Renderer torsoRenderer;
 		private Renderer legLeftRenderer;
@@ -47,6 +48,8 @@ namespace Assets.Scripts
 		private Quaternion originalDirection;
 		private bool lookAtSanta = false;
 
+		private Rigidbody _rigidbody;
+
         private IJesusDelegate _jesusDelegate;
 
         void Start ()
@@ -60,6 +63,7 @@ namespace Assets.Scripts
 
             _lastTimeStep = Time.time;
 
+			_rigidbody = transform.GetComponent<Rigidbody>();
 
 			GetComponent<AudioSource>().clip = hammerSoundArray[Random.Range(0,hammerSoundArray.Length)];
 
@@ -143,12 +147,15 @@ namespace Assets.Scripts
 
         public override void OnLookStart()
         {
+			if (!_isTurnedToBlack) 
+			{
 //            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
-			_isUnderGaze = true;
-			_focusMarker.gameObject.SetActive(true);
-            _armAnimation.speed = Mathf.Max(_armAnimation.speed, 1.0f);
-            _lastTimeStep = 0f;
-        }
+				_isUnderGaze = true;
+				_focusMarker.gameObject.SetActive (true);
+				_armAnimation.speed = Mathf.Max (_armAnimation.speed, 1.0f);
+				_lastTimeStep = 0f;
+			}
+		}
 
         public override void OnLookUpdate()
         {
@@ -208,6 +215,8 @@ namespace Assets.Scripts
 			hatBrimRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
 			hatBallRenderer.material.color = Color.Lerp(Color.white, Color.black, Time.time * 0.1f);
 
+			_isTurnedToBlack = true;
+			_rigidbody.isKinematic = true;
 		}
 
         void OnTriggerEnter(Collider other)
