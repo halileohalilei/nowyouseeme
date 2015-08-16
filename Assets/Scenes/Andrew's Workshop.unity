@@ -1793,7 +1793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1719268528}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!4 &253736705 stripped
 Transform:
   m_PrefabParentObject: {fileID: 425588, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -7002,7 +7002,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1852534519}
   m_RootOrder: 2
-<<<<<<< HEAD
 --- !u!1001 &994030938
 Prefab:
   m_ObjectHideFlags: 0
@@ -7101,8 +7100,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1719268528}
   m_RootOrder: 10
-=======
->>>>>>> origin/master
 --- !u!1 &1000622842
 GameObject:
   m_ObjectHideFlags: 0
@@ -11313,8 +11310,9 @@ Transform:
   - {fileID: 1253662271}
   - {fileID: 1951703146}
   - {fileID: 238069892}
-  - {fileID: 251158486}
+  - {fileID: 998777432}
   - {fileID: 641260519}
+  - {fileID: 251158486}
   m_Father: {fileID: 1934855267}
   m_RootOrder: 3
 --- !u!1001 &1725568717
@@ -13589,7 +13587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011e4126ca0d54f6d88c6b632dff352e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 15
 --- !u!82 &2022199479
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13750,7 +13747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2055712532
 Transform:
   m_ObjectHideFlags: 0
