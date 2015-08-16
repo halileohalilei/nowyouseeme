@@ -42,7 +42,7 @@ namespace Assets.Scripts
 		private Renderer hatBallRenderer;
 
 		public Transform headJoint;
-		public Transform lookTarget;
+		private  Transform lookTarget;
 		private Quaternion originalDirection;
 
         private IJesusDelegate _jesusDelegate;
@@ -83,6 +83,8 @@ namespace Assets.Scripts
 			// The direction the Elf is looking when game starts.  
 			// He looks this direction any time when he can't see Jesus.
 			originalDirection = transform.Find("head joint").rotation;
+			lookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
+			//headJoint = transform.Find("head joint").transform;
 		}
 	
         void Update ()
@@ -116,7 +118,7 @@ namespace Assets.Scripts
             // Elves will look at Jesus if the head rotation is within normal "human" limits.
 			Quaternion angleToTarget = Quaternion.LookRotation(lookTarget.transform.position);
 			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
-			if (angleDiff < 50) {
+			if (angleDiff < 90) {
 				headJoint.transform.LookAt(lookTarget.transform);
 			} else {
 				headJoint.transform.rotation = originalDirection;
