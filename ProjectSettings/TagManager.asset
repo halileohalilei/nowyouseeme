@@ -11,6 +11,7 @@ TagManager:
   - HighScoreBack
   - CreditsBack
   - Elf
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -4,40 +4,38 @@ using System.Collections;
 public class GUIRayCasting : MonoBehaviour {
 
 	// RayCasting
-	public bool GUIRay;
+	public bool GUIRay = false;
 
-	// The Buttons
-	public GameObject StartButton;
-	private StartButtonScript StartScript;
+	// Christmas Card Script
+	public GameObject ChristmasCard;
+	private ChristmasCardUI CardScript;
 
-	public GameObject HighScoreButton;
-	private HighScoreScript ScoreScript;
+	// Button Stars
+	public GameObject QuitL;
+	public GameObject QuitR;
+	
+	public GameObject CreditL;
+	public GameObject CreditR;
 
-	public GameObject CreditsButton;
-	private CreditScript CredScript;
+	public GameObject BackL;
+	public GameObject BackR;
 
-	public GameObject QuitButton;
-	private QuitScript QtScript;
+	// Boolean Flips
+	private int StartFlip;
+	private bool CreditFlip = true;
+	private bool QuitFlip = true;
+	private bool BackFlip = true;
 
-	public GameObject HSBackButton;
-	private HighScoreBack HSBack;
-
-	public GameObject CBackButton;
-	private CreditBackButton CBScript;
-
-	// Animation Controller
-	public GameObject AnimationControl;
-	private GUIController AnimScript;
+	// Start Image
+	public GameObject FirstGroup;
+	public GameObject SecondGroup;
+	public GameObject ThirdGroup;
+	public GameObject FourthGroup;
+	public GameObject FifthGroup;
 
 	void Start () 
 	{
-		StartScript = StartButton.GetComponent<StartButtonScript> ();
-		ScoreScript = HighScoreButton.GetComponent<HighScoreScript> ();
-		CredScript = CreditsButton.GetComponent<CreditScript> ();
-		QtScript = QuitButton.GetComponent<QuitScript> ();
-		AnimScript = AnimationControl.GetComponent<GUIController> ();
-		CBScript = CBackButton.GetComponent<CreditBackButton> ();
-		HSBack = HSBackButton.GetComponent<HighScoreBack> ();
+		CardScript = ChristmasCard.GetComponent<ChristmasCardUI> ();
 	}
 
 	public void SetRay()
@@ -47,6 +45,7 @@ public class GUIRayCasting : MonoBehaviour {
 
 	void Update () 
 	{
+
 		if (GUIRay) 
 		{
 			Ray GRay = new Ray (transform.position,transform.forward);
@@ -58,64 +57,71 @@ public class GUIRayCasting : MonoBehaviour {
 
 				if (hit.collider.CompareTag("Start"))
 				{
-					StartScript.GameOn();				// CODE TO CALL GAME STARTING SCRIPT
-					StartScript.StarsOn();
+					StartFlip +=1;
 
-					// Other Buttons Off
-					ScoreScript.StarsOff();
-					CredScript.StarsOff();
-					QtScript.StarsOff();
+					if (StartFlip == 20)
+					{
+						FirstGroup.SetActive(true);
+					}
+
+					else if (StartFlip == 30)
+					{
+						SecondGroup.SetActive(true);
+					}
+					else if (StartFlip == 40)
+					{
+						ThirdGroup.SetActive(true);
+					}
+					else if (StartFlip == 50)
+					{
+						FourthGroup.SetActive(true);
+
+					} 
+					else if (StartFlip == 60)
+					{
+						FifthGroup.SetActive(true);
+						CardScript.GameBegins();
+						Invoke("SetRay", 3);
+					}
 				}
+				if (!hit.collider.CompareTag("Start"))
+				   	{
 
-				if (hit.collider.CompareTag("HighScore"))
-				{
-					ScoreScript.HighScoreActive();		// CODE TO CALL HIGHSCORE
-					ScoreScript.StarsOn();
-
-					// Other Buttons Off
-					StartScript.StarsOff();
-					CredScript.StarsOff();
-					QtScript.StarsOff();
-					HSBack.StarsOff();
-				}
+					}
 
 				if (hit.collider.CompareTag("Credits"))
 				{
-					CredScript.CreditActive();			// CODE TO CALL CREDITS
-					CredScript.StarsOn();
-
-					// Other Buttons Off
-					ScoreScript.StarsOff();
-					StartScript.StarsOff();
-					QtScript.StarsOff();
-					CBScript.StarsOff();
+					if (CreditFlip == true)
+					{
+						CardScript.CreditsActive();
+						CreditL.SetActive(true);
+						CreditR.SetActive(true);
+						CreditFlip = false;
+						BackFlip = true;
+					}
 				}
 
 				if (hit.collider.CompareTag("Quit"))
 				{
-					QtScript.StarsOn();
-					QtScript.Quit();				// CODE TO QUIT
-
-					// Other Buttons Off
-					ScoreScript.StarsOff();
-					CredScript.StarsOff();
-					StartScript.StarsOff();
-				}
-
-				if (hit.collider.CompareTag("HighScoreBack"))
-				{
-					HSBack.StarsOn();
-					HSBack.HighScoreBackButton();
-
-					CBScript.StarsOff();
+					if (QuitFlip == true)
+					{
+						CardScript.QuitActive();
+						QuitL.SetActive(true);
+						QuitR.SetActive(true);
+						QuitFlip = false;
+					}
 				}
 
 				if (hit.collider.CompareTag("CreditsBack"))
 				{
-					CBScript.StarsOn();
-					CBScript.CreditBack();
-
-					HSBack.StarsOff();
+					if (BackFlip == true)
+					{
+						CardScript.BackActive();
+						BackL.SetActive(true);
+						BackR.SetActive(true);
+						BackFlip = false;
+						CreditFlip = true;
+					}
 				}
 			}
 		}
