@@ -42,9 +42,9 @@ namespace Assets.Scripts
 		private Renderer hatBrimRenderer;
 		private Renderer hatBallRenderer;
 
-		public Transform headJoint;
-		private Transform jesusLookTarget;
-		private Transform santaLookTarget;
+		public Transform HeadJoint;
+		public Transform JesusLookTarget;
+        public Transform SantaLookTarget;
 		private Quaternion originalDirection;
 		private bool lookAtSanta = false;
 
@@ -88,9 +88,10 @@ namespace Assets.Scripts
 
 			// The direction the Elf is looking when game starts.  
 			// He looks this direction any time when he can't see Jesus.
-			originalDirection = transform.Find("head joint").rotation;
-			jesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
-			santaLookTarget = GameObject.Find("Characters/Santa/Santa/santa look target").transform;
+            HeadJoint = transform.Find("head joint");
+			originalDirection = HeadJoint.rotation;
+//			jesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
+			SantaLookTarget = GameObject.Find("Characters/Santa/Santa/santa look target").transform;
 		}
 	
         void Update ()
@@ -122,13 +123,13 @@ namespace Assets.Scripts
             }
             
             // Elves will look at Jesus if the head rotation is within normal "human" limits.
-			Quaternion angleToTarget = Quaternion.LookRotation(jesusLookTarget.transform.position);
+			Quaternion angleToTarget = Quaternion.LookRotation(JesusLookTarget.transform.position);
 			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
-			if (lookAtSanta == false) {
+			if (!lookAtSanta) {
 				if (angleDiff < 90) {
-					headJoint.transform.LookAt(jesusLookTarget.transform);
+					HeadJoint.transform.LookAt(JesusLookTarget.transform);
 				} else {
-					headJoint.transform.rotation = originalDirection;
+					HeadJoint.transform.rotation = originalDirection;
 				}
 			}
 
@@ -168,7 +169,7 @@ namespace Assets.Scripts
             }
 
 			lookAtSanta = true;
-			headJoint.transform.LookAt(santaLookTarget.transform);
+			HeadJoint.transform.LookAt(SantaLookTarget.transform);
         }
 
         public override void OnLookEnd()
@@ -178,7 +179,7 @@ namespace Assets.Scripts
             _focusMarker.gameObject.SetActive(false);
 
 			lookAtSanta = false;
-			headJoint.transform.rotation = originalDirection;
+			HeadJoint.transform.rotation = originalDirection;
         }
 
 		void PlayHammerSound()

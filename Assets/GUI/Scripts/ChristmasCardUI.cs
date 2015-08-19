@@ -15,8 +15,11 @@ public class ChristmasCardUI : MonoBehaviour
 	public GameObject Credits;
 	public GameObject CreditsButton;
 	public GameObject Back;
-	
-	void Start () 
+    
+    [SerializeField]
+    private GameObject _characters;
+
+    void Start () 
 	{
 		Invoke ("GuiInitialize", 5f);
 		anim = CoverHinge.GetComponent<Animator> ();
@@ -72,6 +75,7 @@ public class ChristmasCardUI : MonoBehaviour
 			CameraAnim.SetTrigger ("OVRSwoop");
 		}
 		Debug.Log("Im Called");
+        _characters.SetActive(true);
 	}
 	
 	void DisableUI()

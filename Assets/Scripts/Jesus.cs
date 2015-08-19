@@ -19,8 +19,8 @@ namespace Assets.Scripts
 
         private float _nextSpawnTime;
 
-        [SerializeField] private float _minSpawnTime;
-        [SerializeField] private float _maxSpawnTime;
+        [Space(10), SerializeField] private float _minSpawnTime;
+        [Space(10), SerializeField] private float _maxSpawnTime;
 
         private bool _isAnnihilating;
 
@@ -34,6 +34,8 @@ namespace Assets.Scripts
             _targets = new ArrayList();
             for (int i = 0; i < tmp.childCount; i++)
             {
+                Transform t = tmp.GetChild(i);
+                t.GetComponent<Elf>().JesusLookTarget = _jesusParts.FindChild("eye - left");
                 _targets.Add(tmp.GetChild(i));
             }
 

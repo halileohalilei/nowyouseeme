@@ -4845,6 +4845,14 @@ Prefab:
       propertyPath: m_TagString
       value: Elf
       objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: _santaLookTarget
+      value: 
+      objectReference: {fileID: 1955115637}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: _jesusLookTarget
+      value: 
+      objectReference: {fileID: 983085587}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_IsPrefabParent: 0
@@ -5546,7 +5554,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 102478, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: _currentSpeed
@@ -11421,6 +11429,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 425588, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_PrefabInternal: {fileID: 1278790952}
+--- !u!4 &983085587 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 458514, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
+  m_PrefabInternal: {fileID: 528086387}
 --- !u!1 &993156608
 GameObject:
   m_ObjectHideFlags: 0
@@ -18107,7 +18119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1604559677
 Transform:
   m_ObjectHideFlags: 0
@@ -21057,6 +21069,7 @@ MonoBehaviour:
   Credits: {fileID: 770065964}
   CreditsButton: {fileID: 1927781388}
   Back: {fileID: 1551179625}
+  _characters: {fileID: 1604559676}
 --- !u!4 &1857987955 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: f95379b220faf0443a7aa703b3631eda, type: 2}
@@ -23366,6 +23379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688ef6cdbc1387f4eb0928a2503a1d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 0
+  _jesus: {fileID: 1844193173}
 --- !u!82 &2022199479
 AudioSource:
   m_ObjectHideFlags: 0

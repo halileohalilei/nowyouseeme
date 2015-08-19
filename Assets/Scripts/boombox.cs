@@ -7,11 +7,11 @@ namespace Assets.Scripts
         private Rigidbody _rigidbody;
         [SerializeField] private float _force;
 
-        private Jesus _jesus;
+        [SerializeField] private Jesus _jesus;
 
         void Start ()
         {
-            _jesus = GameObject.Find("Jesus").GetComponent<Jesus>();
+//            _jesus = GameObject.Find("Jesus").GetComponent<Jesus>();
             _rigidbody = GetComponent<Rigidbody>();
             transform.rotation = Random.rotation;
         }
