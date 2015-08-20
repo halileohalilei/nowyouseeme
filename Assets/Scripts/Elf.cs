@@ -73,7 +73,7 @@ namespace Assets.Scripts
 
 			// for turning the Elf to color.black when he's on fire
 			torsoRenderer = transform.Find("torso").GetComponent<Renderer>();
-			Debug.Log("torsoRenderer = " + torsoRenderer);
+//			Debug.Log("torsoRenderer = " + torsoRenderer);
 			legLeftRenderer = transform.Find("leg - left").GetComponent<Renderer>();
 			legRightRenderer = transform.Find("leg - right").GetComponent<Renderer>();
 			armLeftRenderer = transform.Find("arm - left").GetComponent<Renderer>();

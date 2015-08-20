@@ -12,6 +12,8 @@ namespace Assets.Scripts
 		[SerializeField] private TextMesh YearGUI;
 		[SerializeField] private TextMesh PresentCountGUI;
 
+	    public bool IsJesusActive;
+
 		private static GameData _currentGameData;
 
 		void Start () {

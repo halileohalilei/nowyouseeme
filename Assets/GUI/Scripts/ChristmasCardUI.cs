@@ -75,12 +75,18 @@ public class ChristmasCardUI : MonoBehaviour
 			CameraAnim.SetTrigger ("OVRSwoop");
 		}
 		Debug.Log("Im Called");
-        _characters.SetActive(true);
+
+        Invoke("PrepareScene", 6);
 	}
+
+    public void PrepareScene()
+    {
+        _characters.SetActive(true);
+    }
 	
 	void DisableUI()
 	{
-		this.gameObject.SetActive(false);
+		gameObject.SetActive(false);
 	}
 	
 	// CREDITS

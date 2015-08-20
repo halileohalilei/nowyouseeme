@@ -103,12 +103,14 @@ namespace Assets.Scripts
 				{
 					Elf elf = t.GetComponent<Elf>();
 					elf.StopWorking();
-				}
+                }
+                GameData.GetCurrentGameData().IsJesusActive = false;
             }
         }
 
         public void FuckShitUp()
         {
+            GameData.GetCurrentGameData().IsJesusActive = true;
             _nextSpawnTime = Mathf.Infinity;
             _isAnnihilating = true;
             _jesusParts.gameObject.SetActive(true);
