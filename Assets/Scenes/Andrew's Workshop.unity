@@ -17615,7 +17615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 4c6e86ad916ecd24aa904fcc8547ca8e, type: 2}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 4c6e86ad916ecd24aa904fcc8547ca8e, type: 2}
       propertyPath: m_Name
