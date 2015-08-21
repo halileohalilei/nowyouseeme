@@ -3479,7 +3479,7 @@ Transform:
   - {fileID: 1130906180}
   - {fileID: 325223125}
   m_Father: {fileID: 2055712532}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1001 &276753153
 Prefab:
   m_ObjectHideFlags: 0
@@ -10249,7 +10249,7 @@ Transform:
   - {fileID: 1731029238}
   - {fileID: 1337345430}
   m_Father: {fileID: 2055712532}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &885524329
 GameObject:
   m_ObjectHideFlags: 0
@@ -14811,66 +14811,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1301511296}
   m_Mesh: {fileID: 4300102, guid: 8672f927eabc34da282b300f693efc0f, type: 3}
---- !u!1 &1305561832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1305561833}
-  - 108: {fileID: 1305561834}
-  m_Layer: 0
-  m_Name: Directional light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1305561833
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305561832}
-  m_LocalRotation: {x: -.416724533, y: -.150832117, z: .0703341812, w: -.893668532}
-  m_LocalPosition: {x: 34, y: 144.600006, z: 61.2999992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2055712532}
-  m_RootOrder: 0
---- !u!108 &1305561834
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1305561832}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .400000006
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!1001 &1306982137
 Prefab:
   m_ObjectHideFlags: 0
@@ -16910,6 +16850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   YearGUI: {fileID: 1337345431}
   PresentCountGUI: {fileID: 863215078}
+  IsJesusActive: 0
 --- !u!4 &1541479493
 Transform:
   m_ObjectHideFlags: 0
@@ -22148,7 +22089,7 @@ Transform:
   - {fileID: 1719268528}
   - {fileID: 1779748827}
   m_Father: {fileID: 2055712532}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1937292854
 GameObject:
   m_ObjectHideFlags: 0
@@ -23746,7 +23687,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1305561833}
   - {fileID: 1934855267}
   - {fileID: 879510667}
   - {fileID: 275168202}
