@@ -13278,6 +13278,7 @@ MonoBehaviour:
   YearGUI: {fileID: 1337345431}
   PresentCountGUI: {fileID: 863215078}
   IsJesusActive: 0
+  IsGameStarted: 0
 --- !u!4 &1541479493
 Transform:
   m_ObjectHideFlags: 0

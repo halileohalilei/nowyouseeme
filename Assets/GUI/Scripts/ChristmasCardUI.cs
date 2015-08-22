@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class ChristmasCardUI : MonoBehaviour 
 {
@@ -82,6 +83,7 @@ public class ChristmasCardUI : MonoBehaviour
     public void PrepareScene()
     {
         _characters.SetActive(true);
+        GameData.GetCurrentGameData().StartGame();
     }
 	
 	void DisableUI()

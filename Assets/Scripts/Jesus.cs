@@ -80,7 +80,7 @@ namespace Assets.Scripts
 
         public Quaternion PickNewTarget()
         {
-            if (_targets.Count > 0)
+            if (_targets != null &&_targets.Count > 0)
             {
                 int newTargetIndex = Random.Range(0, _targets.Count);
                 return Quaternion.LookRotation(((Transform)_targets[newTargetIndex]).position - _laserBeams.position);
