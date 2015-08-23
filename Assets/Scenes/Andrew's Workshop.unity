@@ -8349,7 +8349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &879510667
 Transform:
   m_ObjectHideFlags: 0
@@ -16461,6 +16461,7 @@ MonoBehaviour:
   CreditsButton: {fileID: 1927781388}
   Back: {fileID: 1551179625}
   _characters: {fileID: 1604559676}
+  _gui: {fileID: 879510666}
 --- !u!4 &1857987955 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: f95379b220faf0443a7aa703b3631eda, type: 2}

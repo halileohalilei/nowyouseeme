@@ -19,6 +19,8 @@ public class ChristmasCardUI : MonoBehaviour
     
     [SerializeField]
     private GameObject _characters;
+    [SerializeField]
+    private GameObject _gui;
 
     void Start () 
 	{
@@ -83,6 +85,7 @@ public class ChristmasCardUI : MonoBehaviour
     public void PrepareScene()
     {
         _characters.SetActive(true);
+        _gui.SetActive(true);
         GameData.GetCurrentGameData().StartGame();
     }
 	
