@@ -122,17 +122,24 @@ namespace Assets.Scripts
             {
                 BurnToBlack();
             }
-            
-            // Elves will look at Jesus if the head rotation is within normal "human" limits.
-			Quaternion angleToTarget = Quaternion.LookRotation(JesusLookTarget.transform.position);
-			float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
-			if (!lookAtSanta) {
-				if (angleDiff < 90) {
-					HeadJoint.transform.LookAt(JesusLookTarget.transform);
-				} else {
-					HeadJoint.transform.rotation = originalDirection;
-				}
-			}
+
+            if (!_isTurnedToBlack)
+            {
+                // Elves will look at Jesus if the head rotation is within normal "human" limits.
+                Quaternion angleToTarget = Quaternion.LookRotation(JesusLookTarget.transform.position);
+                float angleDiff = Quaternion.Angle(angleToTarget, originalDirection);
+                if (!lookAtSanta)
+                {
+                    if (angleDiff < 90)
+                    {
+                        HeadJoint.transform.LookAt(JesusLookTarget.transform);
+                    }
+                    else
+                    {
+                        HeadJoint.transform.rotation = originalDirection;
+                    }
+                }
+            }
 
             if (_pointOfNoReturn)
             {
@@ -170,8 +177,11 @@ namespace Assets.Scripts
                 _pointOfNoReturn = true;
             }
 
-			lookAtSanta = true;
-			HeadJoint.transform.LookAt(SantaLookTarget.transform);
+            lookAtSanta = true;
+            if (!_isTurnedToBlack)
+            {
+                HeadJoint.transform.LookAt(SantaLookTarget.transform);
+            }
         }
 
         public override void OnLookEnd()
