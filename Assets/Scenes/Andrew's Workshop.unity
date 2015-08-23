@@ -4674,7 +4674,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: _incrementalSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435272, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: m_LocalRotation.y
@@ -4694,11 +4694,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: _currentSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: _initialSpeed
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
+      propertyPath: _lockOnTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2372212, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
@@ -16350,6 +16354,7 @@ MonoBehaviour:
   - {fileID: 238069892}
   - {fileID: 251158486}
   - {fileID: 641260519}
+  _stayOnSamePointTime: 10
   _minSpawnTime: 5
   _maxSpawnTime: 15
 --- !u!1 &1844951649

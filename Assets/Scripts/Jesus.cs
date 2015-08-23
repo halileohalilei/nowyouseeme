@@ -18,6 +18,7 @@ namespace Assets.Scripts
         private ArrayList _targets;
 
         private float _nextSpawnTime;
+        [SerializeField] private float _stayOnSamePointTime;
 
         [Space(10), SerializeField] private float _minSpawnTime;
         [Space(10), SerializeField] private float _maxSpawnTime;
@@ -53,7 +54,7 @@ namespace Assets.Scripts
 
             if (_isAnnihilating)
             {
-                if (_timeSinceLastMovement > 5)
+                if (_timeSinceLastMovement > _stayOnSamePointTime)
                 {
                     _timeSinceLastMovement = 0;
                     MoveToNewPoint();

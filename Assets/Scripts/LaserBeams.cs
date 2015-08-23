@@ -14,6 +14,7 @@ namespace Assets.Scripts
         [SerializeField] private float _currentSpeed;
         [SerializeField] private float _initialSpeed;
         [SerializeField] private float _incrementalSpeed;
+        [SerializeField] private float _lockOnTime;
 
         private bool _isVisible;
         private bool IsVisible
@@ -22,9 +23,13 @@ namespace Assets.Scripts
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 _isVisible = value;
+                if (_isVisible) _isLockedOnTarget = false;
             }
             get { return _isVisible; }
         }
+
+        private bool _isLockedOnTarget;
+        private float _lockOnStartTime;
 
         public Quaternion TargetRotation
         {
@@ -44,18 +49,30 @@ namespace Assets.Scripts
         {
             if (IsVisible)
             {
-                if (Quaternion.Angle(transform.rotation, _targetRotation) < 0.1f)
+                if (!_isLockedOnTarget)
                 {
-                    _targetRotation = _jesus.PickNewTarget();
-                    _currentSpeed += _incrementalSpeed;
+                    if (Quaternion.Angle(transform.rotation, _targetRotation) < 0.1f)
+                    {
+                        _lockOnStartTime = Time.time;
+                        _isLockedOnTarget = true;
+                    }
+                    else
+                    {
+                        float angle = Quaternion.Angle(transform.rotation, _targetRotation);
+                        float timeToComplete = angle/_currentSpeed;
+                        float donePercentage = Mathf.Min(1F, Time.deltaTime/timeToComplete);
+
+                        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, donePercentage);
+                    }
                 }
                 else
                 {
-                    float angle = Quaternion.Angle(transform.rotation, _targetRotation);
-                    float timeToComplete = angle/_currentSpeed;
-                    float donePercentage = Mathf.Min(1F, Time.deltaTime/timeToComplete);
-
-                    transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, donePercentage);
+                    if (Time.time - _lockOnStartTime > _lockOnTime)
+                    {
+                        _isLockedOnTarget = false;
+                        _targetRotation = _jesus.PickNewTarget();
+                        _currentSpeed += _incrementalSpeed;
+                    }
                 }
             }
         }
