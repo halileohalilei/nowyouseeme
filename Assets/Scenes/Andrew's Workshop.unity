@@ -9542,6 +9542,22 @@ SpriteRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 492064, guid: 8c7b212805c944d00a34f73e9bcd9d95, type: 2}
   m_PrefabInternal: {fileID: 642060480}
+--- !u!1 &1013627456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100018, guid: 6c4df2e5c096540b1b5dc63c789f14a1, type: 3}
+  m_PrefabInternal: {fileID: 246100286}
+--- !u!65 &1013627460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1013627456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 118.110237, y: 15.7299995, z: 98.4251785}
+  m_Center: {x: -59.0551186, y: -7.86999989, z: 49.2125893}
 --- !u!1 &1015518532
 GameObject:
   m_ObjectHideFlags: 0
