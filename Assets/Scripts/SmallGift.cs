@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class smallgift : MonoBehaviour {
+public class SmallGift : MonoBehaviour {
 
 	private Rigidbody rb;
 
