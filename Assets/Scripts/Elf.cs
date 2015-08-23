@@ -118,7 +118,7 @@ namespace Assets.Scripts
 				SpawnGift();
 			}
             _shouldBurnToBlack = _isUnderJesusGaze && (Time.time - _jesusGazeStartTime > _jesusTolerance);
-            if (_shouldBurnToBlack)
+            if (_shouldBurnToBlack && !_isTurnedToBlack)
             {
                 BurnToBlack();
             }
@@ -138,6 +138,7 @@ namespace Assets.Scripts
             {
                 _jesusDelegate.OnElfDestroyed(transform);
                 _bloodAndGoreFactory.CreateBloodAndGore(transform.position);
+                GameData.GetCurrentGameData().DecrementRemainingElfCount();
                 Destroy(gameObject);
             }
 		}
@@ -219,7 +220,10 @@ namespace Assets.Scripts
 
 			_isTurnedToBlack = true;
 			_rigidbody.isKinematic = true;
-		}
+
+            _jesusDelegate.OnElfDestroyed(transform);
+            GameData.GetCurrentGameData().DecrementRemainingElfCount();
+        }
 
         void OnTriggerEnter(Collider other)
         {

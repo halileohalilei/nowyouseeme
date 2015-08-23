@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class boombox : Target {
+    public class Boombox : Target {
 
         private Rigidbody _rigidbody;
 		private Vector3 _explosionPos;

@@ -76,7 +76,7 @@ public class MasterSoundScript : MonoBehaviour
 		if (AckGreenLight == true) 
 		{
 			AcknowledgeActive+=2;
-			Debug.Log(AcknowledgeActive);
+//			Debug.Log(AcknowledgeActive);
 		}
 	}
 
