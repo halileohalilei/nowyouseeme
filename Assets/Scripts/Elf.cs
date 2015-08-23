@@ -93,7 +93,6 @@ namespace Assets.Scripts
 //			jesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
 			SantaLookTarget = GameObject.Find("Characters/Santa/Santa/santa look target").transform;
 
-			//transform.isStatic = false;
 		}
 	
         void Update ()

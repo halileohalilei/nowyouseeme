@@ -4,7 +4,6 @@ using System.Collections;
 public class smallgift : MonoBehaviour {
 
 	private Rigidbody rb;
-	//private Collider coll;
 
 	// Use this for initialization
 	void Start () {
