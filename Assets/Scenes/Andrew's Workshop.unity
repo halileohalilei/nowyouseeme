@@ -3862,6 +3862,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 387486401}
   - 114: {fileID: 387486399}
+  - 114: {fileID: 387486400}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -3886,6 +3887,30 @@ MonoBehaviour:
   PushedSoundObject: {fileID: 1551488026}
   RandomlySpokenPeace: {fileID: 189836927}
   PerMinutePeaceTalk: .100000001
+--- !u!114 &387486400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 387486398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8ec49b4b8ff444da6f6e160d6eef2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AcknowledgeSoundCollection: {fileID: 11451966, guid: b7963f2288979c0448575661b49b0867,
+    type: 2}
+  JesusAttackSoundCollection: {fileID: 11451966, guid: 1a6c1029a77b0c14fa0284b1b7236e40,
+    type: 2}
+  PushedSoundCollection: {fileID: 11451966, guid: f3ae27d7eda71204fbaac3d794346685,
+    type: 2}
+  RandomAttackSoundCollection: {fileID: 11451966, guid: 5f9ef60cde6ff4b49ab2528bbbe47c6f,
+    type: 2}
+  RandomIdleSoundCollection: {fileID: 11451966, guid: 1764672552eee3142878ccbc0086a427,
+    type: 2}
+  ScratchSoundCollection: {fileID: 11451966, guid: 6a4b4a41778700249a7afba51dcd4fc1,
+    type: 2}
+  OneShotAudioSource: {fileID: 146826, guid: 3e07d9445d66bae4aa3baa1105b5fde4, type: 2}
 --- !u!4 &387486401
 Transform:
   m_ObjectHideFlags: 0
@@ -3902,7 +3927,7 @@ Transform:
   - {fileID: 189836928}
   - {fileID: 1022457424}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &389597721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,7 +4841,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 102478, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11442674, guid: 3b5b4ae2d17ee4518a1d4c87018d4d58, type: 2}
       propertyPath: _currentSpeed
@@ -17655,7 +17680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1604559677
 Transform:
   m_ObjectHideFlags: 0
@@ -20627,8 +20652,8 @@ MonoBehaviour:
   - {fileID: 251158486}
   - {fileID: 641260519}
   _stayOnSamePointTime: 10
-  _minSpawnTime: 30
-  _maxSpawnTime: 60
+  _minSpawnTime: 5
+  _maxSpawnTime: 10
 --- !u!1 &1844951649
 GameObject:
   m_ObjectHideFlags: 0
@@ -21330,6 +21355,10 @@ Prefab:
     - target: {fileID: 8166632, guid: 8cdafe0ccefbcf349a5421eae8442db2, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 8cdafe0ccefbcf349a5421eae8442db2, type: 2}
+      propertyPath: deviceConfig.CC
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cdafe0ccefbcf349a5421eae8442db2, type: 2}
@@ -23002,7 +23031,7 @@ Transform:
   - {fileID: 275168202}
   - {fileID: 1823184146}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!1 &2062591875
 GameObject:
   m_ObjectHideFlags: 0

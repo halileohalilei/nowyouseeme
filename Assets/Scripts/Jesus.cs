@@ -118,6 +118,7 @@ namespace Assets.Scripts
             GameData.GetCurrentGameData().IsJesusActive = _isAnnihilating;
 
             _jesusParts.gameObject.SetActive(true);
+            MoveToNewPoint();
         }
 
         private void DetermineNextSpawnTime()
