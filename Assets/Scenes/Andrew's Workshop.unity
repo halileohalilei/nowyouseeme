@@ -442,8 +442,6 @@ Prefab:
     - {fileID: 11455026, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &35221114 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 144138, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
@@ -499,7 +497,6 @@ Animator:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1c9df9660372b7f40824e7cc9a28ac5b, type: 2}
   m_PrefabInternal: {fileID: 2085903582}
->>>>>>> origin/master
 --- !u!1 &37639253
 GameObject:
   m_ObjectHideFlags: 0
