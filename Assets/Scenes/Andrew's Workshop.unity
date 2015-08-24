@@ -438,9 +438,68 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: 988ff726781b145099eefff22153cada,
         type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11455026, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
+=======
+--- !u!1 &35221114 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 144138, guid: fbc2f95449da344e5b19b4bae37dfeb8, type: 2}
+  m_PrefabInternal: {fileID: 35221113}
+--- !u!114 &35221115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35221114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f7cf09970c5bb4ebccd363874b9315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 10
+  _jesus: {fileID: 1844193173}
+--- !u!1 &36659582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100078, guid: c03889ef93d104714ad57d8d0dfede4c, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1586638847}
+  - 95: {fileID: 36659583}
+  m_Layer: 0
+  m_Name: Santa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!95 &36659583
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: c03889ef93d104714ad57d8d0dfede4c,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 36659582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c03889ef93d104714ad57d8d0dfede4c, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!4 &37131086 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 1c9df9660372b7f40824e7cc9a28ac5b, type: 2}
+  m_PrefabInternal: {fileID: 2085903582}
+>>>>>>> origin/master
 --- !u!1 &37639253
 GameObject:
   m_ObjectHideFlags: 0
