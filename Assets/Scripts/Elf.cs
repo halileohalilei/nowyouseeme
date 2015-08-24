@@ -42,9 +42,9 @@ namespace Assets.Scripts
 		private Renderer hatBrimRenderer;
 		private Renderer hatBallRenderer;
 
-		private Transform HeadJoint;
-		private Transform JesusLookTarget;
-		private Transform SantaLookTarget;
+        public Transform HeadJoint;
+        public Transform JesusLookTarget;
+        public Transform SantaLookTarget;
 		private Quaternion originalDirection;
 		private bool lookAtSanta = false;
 
@@ -91,7 +91,7 @@ namespace Assets.Scripts
             HeadJoint = transform.Find("head joint");
 			//Debug.Log("head joint = " + HeadJoint);
 			originalDirection = HeadJoint.rotation;
-			JesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
+//			JesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
 			SantaLookTarget = GameObject.Find("Characters/Santa (1)/Santa/santa look target").transform;
 
 		}

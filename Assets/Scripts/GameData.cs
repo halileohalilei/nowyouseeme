@@ -27,7 +27,6 @@ namespace Assets.Scripts
 			_currentGameData = this;
 		    _currentRequiredPresentCount = 60;
             _givenTimeOnThisLevel = 60;
-            _remainingElfCount = GameObject.Find("Elves").transform.childCount;
 		    //TODO: read all level specs and initialize game data accordingly
 		}
 
@@ -54,7 +53,8 @@ namespace Assets.Scripts
 		{
 			_currentLevel = 0;
 			_currentPresentCount = 0;
-			UpdateYearGUI ();
+            _remainingElfCount = GameObject.Find("Elves").transform.childCount;
+            UpdateYearGUI ();
 		}
 
 		public void IncrementPresentCount()

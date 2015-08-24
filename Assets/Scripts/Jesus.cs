@@ -31,7 +31,7 @@ namespace Assets.Scripts
             _laserBeams = _jesusParts.FindChild("Laser Beam Base");
             _laserBeamsComponent = _laserBeams.GetComponent<LaserBeams>();
 
-            Transform tmp = transform.parent.GetChild(1); //bad programming
+            Transform tmp = transform.parent.GetChild(0); //bad programming
             _targets = new ArrayList();
             for (int i = 0; i < tmp.childCount; i++)
             {
