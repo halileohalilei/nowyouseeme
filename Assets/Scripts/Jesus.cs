@@ -95,6 +95,7 @@ namespace Assets.Scripts
             if (_isAnnihilating)
             {
                 _isAnnihilating = false;
+                GameData.GetCurrentGameData().IsJesusActive = _isAnnihilating;
                 _timeSinceLastMovement = 0;
                 _jesusParts.gameObject.SetActive(false);
                 DetermineNextSpawnTime();
@@ -114,6 +115,8 @@ namespace Assets.Scripts
             GameData.GetCurrentGameData().IsJesusActive = true;
             _nextSpawnTime = Mathf.Infinity;
             _isAnnihilating = true;
+            GameData.GetCurrentGameData().IsJesusActive = _isAnnihilating;
+
             _jesusParts.gameObject.SetActive(true);
         }
 

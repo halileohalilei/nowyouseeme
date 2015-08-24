@@ -234,6 +234,8 @@ namespace Assets.Scripts
 
             _jesusDelegate.OnElfDestroyed(transform);
             GameData.GetCurrentGameData().DecrementRemainingElfCount();
+
+            SoundManager.GetSharedManager().PlayJesusAttackSound(transform.position);
         }
 
         void OnTriggerEnter(Collider other)

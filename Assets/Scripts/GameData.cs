@@ -121,7 +121,6 @@ namespace Assets.Scripts
 	    private void OnLevelFailed()
         {
 		    IsGameStarted = false;
-            _givenTimeOnThisLevel = -1;
             Debug.Log("LEVEL FAILED");
 	    }
 	}

@@ -4,7 +4,7 @@ namespace Assets.Scripts
 {
     public class Boombox : Target
     {
-
+        private AudioSource _audioSource;
         private Rigidbody _rigidbody;
         private Vector3 _explosionPos;
         [SerializeField]
@@ -15,20 +15,12 @@ namespace Assets.Scripts
 
         void Start()
         {
-            //            _jesus = GameObject.Find("Jesus").GetComponent<Jesus>();
             _rigidbody = GetComponent<Rigidbody>();
-            //transform.rotation = Random.rotation;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            //_rigidbody.AddRelativeForce(transform.forward * _force);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         void OnCollisionStay(Collision collision)
         {
-            //transform.rotation = Random.rotation;
             _explosionPos = transform.position + Random.insideUnitSphere * 0.5f;
             _rigidbody.AddExplosionForce(1000.0f, _explosionPos, 5.0f, 0.0f);
         }
@@ -40,6 +32,13 @@ namespace Assets.Scripts
 
         public override void OnLookStart()
         {
+            if (GameData.GetCurrentGameData().IsJesusActive)
+            {
+                SoundManager.GetSharedManager().PlayScratchSound(transform.position);
+                _audioSource.Stop();
+                _audioSource.PlayDelayed(3);
+            }
+
             _jesus.CalmDown();
         }
 
