@@ -12,7 +12,10 @@ public class ChristmasCardUI : MonoBehaviour
 	private Animator CameraAnim;
 	private Animator CameraAnimAlp;
 	
-	public GameObject MainTitle;
+	public GameObject MainTitle1;
+	public GameObject MainTitle2;
+	public GameObject MainTitle3;
+	public GameObject MainTitle4;
 	public GameObject Credits;
 	public GameObject CreditsButton;
 	public GameObject Back;
@@ -32,29 +35,6 @@ public class ChristmasCardUI : MonoBehaviour
 	
 	void Update () 
 	{
-		// CREDITS CLICK
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			CreditsActive();
-		}
-		
-		// BACK CLICK
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			BackActive();
-		}
-		
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			GameBegins();
-			Debug.Log("GAME CALLED");	
-		}
-		
-		// QUIT WITH ESCAPE
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			Application.Quit();
-		}
 	}
 	
 	// INITIALIZATION
@@ -103,7 +83,10 @@ public class ChristmasCardUI : MonoBehaviour
 	
 	public void CreditsOn()
 	{
-		MainTitle.SetActive(false);
+		MainTitle1.SetActive(false);
+		MainTitle2.SetActive(false);
+		MainTitle3.SetActive(false);
+		MainTitle4.SetActive(false);
 		Credits.SetActive(true);
 		CreditsButton.SetActive(false);
 		Back.SetActive(true);
@@ -120,7 +103,10 @@ public class ChristmasCardUI : MonoBehaviour
 	
 	public void BackOn()
 	{
-		MainTitle.SetActive(true);
+		MainTitle1.SetActive(true);
+		MainTitle2.SetActive(true);
+		MainTitle3.SetActive(true);
+		MainTitle4.SetActive(true);
 		Credits.SetActive(false);
 		CreditsButton.SetActive(true);
 		Back.SetActive(false);
