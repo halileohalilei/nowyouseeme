@@ -42,9 +42,9 @@ namespace Assets.Scripts
 		private Renderer hatBrimRenderer;
 		private Renderer hatBallRenderer;
 
-		public Transform HeadJoint;
-		public Transform JesusLookTarget;
-        public Transform SantaLookTarget;
+		private Transform HeadJoint;
+		private Transform JesusLookTarget;
+		private Transform SantaLookTarget;
 		private Quaternion originalDirection;
 		private bool lookAtSanta = false;
 
@@ -89,9 +89,10 @@ namespace Assets.Scripts
 			// The direction the Elf is looking when game starts.  
 			// He looks this direction any time when he can't see Jesus.
             HeadJoint = transform.Find("head joint");
+			//Debug.Log("head joint = " + HeadJoint);
 			originalDirection = HeadJoint.rotation;
-//			jesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
-			SantaLookTarget = GameObject.Find("Characters/Santa/Santa/santa look target").transform;
+			JesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
+			SantaLookTarget = GameObject.Find("Characters/Santa (1)/Santa/santa look target").transform;
 
 		}
 	
