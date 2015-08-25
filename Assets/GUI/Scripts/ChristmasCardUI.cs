@@ -16,6 +16,7 @@ public class ChristmasCardUI : MonoBehaviour
 	public GameObject Instructions2;
 	public GameObject Instructions3;
 	public GameObject Instructions4;
+	public GameObject Instructions5;
 	public GameObject Credits;
 	public GameObject CreditsButton;
 	public GameObject Back;
@@ -83,10 +84,11 @@ public class ChristmasCardUI : MonoBehaviour
 	
 	public void CreditsOn()
 	{
-		//MainTitle1.SetActive(false);
-		//MainTitle2.SetActive(false);
-		//MainTitle3.SetActive(false);
-		//MainTitle4.SetActive(false);
+		Instructions1.SetActive(false);
+		Instructions2.SetActive(false);
+		Instructions3.SetActive(false);
+		Instructions4.SetActive(false);
+		Instructions5.SetActive(false);
 		Credits.SetActive(true);
 		CreditsButton.SetActive(false);
 		Back.SetActive(true);
@@ -103,10 +105,11 @@ public class ChristmasCardUI : MonoBehaviour
 	
 	public void BackOn()
 	{
-		//MainTitle1.SetActive(true);
-		//MainTitle2.SetActive(true);
-		//MainTitle3.SetActive(true);
-		//MainTitle4.SetActive(true);
+		Instructions1.SetActive(true);
+		Instructions2.SetActive(true);
+		Instructions3.SetActive(true);
+		Instructions4.SetActive(true);
+		Instructions5.SetActive(true);
 		Credits.SetActive(false);
 		CreditsButton.SetActive(true);
 		Back.SetActive(false);
