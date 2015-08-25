@@ -22,6 +22,16 @@ namespace Assets.Scripts
 	    public bool IsGameStarted;
 
 		private static GameData _currentGameData;
+		
+		//LOSE UI
+		public GameObject GameOver;
+		public GameObject YouWin;
+		public GameObject YouLose;
+		private Animator anim;
+		
+		//GUI
+		public GameObject GUIBoard;
+
 
 		void Start () {
 			_currentGameData = this;
@@ -109,20 +119,37 @@ namespace Assets.Scripts
 		    IsGameStarted = true;
 		    _levelStartTime = Time.time;
 			ResetGameData();
+			GUIBoard.SetActive(true);
+
 		}
 
 		private void OnLevelCompleted()
 		{
-			//TODO: reset the scene
 		    IsGameStarted = false;
+		    anim = GameOver.GetComponent<Animator>();
+		    anim.SetTrigger("GameOver");
             Debug.Log("LEVEL COMPLETE");
+			GetComponent<AudioSource>().Play();
+			YouWin.SetActive(true);
+			YouLose.SetActive(false);
+			Invoke("RestartLevel",5);
 		}
 
 	    private void OnLevelFailed()
         {
 		    IsGameStarted = false;
+			anim = GameOver.GetComponent<Animator>();
+			anim.SetTrigger("GameOver");
             Debug.Log("LEVEL FAILED");
             GetComponent<AudioSource>().Play();
+            YouLose.SetActive(true);
+            YouWin.SetActive(false);
+            Invoke("RestartLevel",5);
+	    }
+	    
+	    void RestartLevel()
+	    {
+	    	Application.LoadLevel(Application.loadedLevel);	
 	    }
 	}
 }
