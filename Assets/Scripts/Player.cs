@@ -57,7 +57,6 @@ namespace Assets.Scripts
                     {
                         Target t = _lastTarget.GetComponent<Target>();
                         t.OnLookEnd();
-//                        Debug.Log("Look ended on target of type: " + t.GetTargetType());
                         _lastTarget = null;
                     }
                 }
@@ -68,7 +67,6 @@ namespace Assets.Scripts
                 {
                     Target t = _lastTarget.GetComponent<Target>();
                     t.OnLookEnd();
-//                    Debug.Log("Look ended on target of type: " + t.GetTargetType());
                     _lastTarget = null;
                 }
             }
