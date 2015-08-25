@@ -12,7 +12,28 @@ namespace Assets.Scripts
         public SoundCollection RandomIdleSoundCollection;
         public SoundCollection ScratchSoundCollection;
 
-        [Space(15)]public GameObject OneShotAudioSource;
+        [Space(15)] public GameObject OneShotAudioSource;
+
+        [Space(15)] public int RandomSoundsPerMinute;
+
+        private float _lastTimeStep;
+
+        void Update()
+        {
+            if (GameData.GetCurrentGameData().IsGameStarted)
+            {
+                _lastTimeStep += Time.deltaTime;
+                if (_lastTimeStep > 1f)
+                {
+                    _lastTimeStep = _lastTimeStep%1f;
+                    if (Random.value < RandomSoundsPerMinute/60f)
+                    {
+                        PlayRandomSound();
+                    }
+                }
+            }
+        }
+
 
         private static SoundManager _sharedManager;
 
@@ -24,6 +45,15 @@ namespace Assets.Scripts
         public static SoundManager GetSharedManager()
         {
             return _sharedManager;
+        }
+
+        private GameObject PlayRandomSound()
+        {
+            if (GameData.GetCurrentGameData().IsJesusActive)
+            {
+                return PlaySound(RandomAttackSoundCollection, transform.position, 4);
+            }
+            return PlaySound(RandomIdleSoundCollection, transform.position, 4);
         }
 
         public GameObject PlayScratchSound(Vector3 position)
