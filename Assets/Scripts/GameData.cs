@@ -122,6 +122,7 @@ namespace Assets.Scripts
         {
 		    IsGameStarted = false;
             Debug.Log("LEVEL FAILED");
+            GetComponent<AudioSource>().Play();
 	    }
 	}
 }
