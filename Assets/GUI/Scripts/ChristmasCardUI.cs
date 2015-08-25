@@ -53,12 +53,13 @@ public class ChristmasCardUI : MonoBehaviour
 		if (OVRCamera.activeInHierarchy == false)
 		{
 			CameraAnimAlp.SetTrigger("OVRSwoop");
+			Debug.Log("ALPVR CALLED");
 		}
 		else if (OVRCamera.activeInHierarchy == true)
 		{
-			CameraAnim.SetTrigger ("OVRSwoop");
+			CameraAnim.SetTrigger ("RealOVRSwoop");
+			Debug.Log("OVR CALLED");
 		}
-		Debug.Log("Im Called");
 
         Invoke("PrepareScene", 6);
 	}

@@ -23,6 +23,8 @@ namespace Assets.Scripts
 
 		private static GameData _currentGameData;
 		
+		public GameObject Boombox;
+		
 		//LOSE UI
 		public GameObject GameOver;
 		public GameObject YouWin;
@@ -120,6 +122,7 @@ namespace Assets.Scripts
 		    _levelStartTime = Time.time;
 			ResetGameData();
 			GUIBoard.SetActive(true);
+			Boombox.SetActive(true);
 
 		}
 
