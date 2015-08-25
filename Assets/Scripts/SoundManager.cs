@@ -26,17 +26,27 @@ namespace Assets.Scripts
             return _sharedManager;
         }
 
-        public void PlayScratchSound(Vector3 position)
+        public GameObject PlayScratchSound(Vector3 position)
         {
-            PlaySound(ScratchSoundCollection, position);
+            return PlaySound(ScratchSoundCollection, position);
         }
 
-        public void PlayJesusAttackSound(Vector3 position)
+        public GameObject PlayJesusAttackSound(Vector3 position)
         {
-            PlaySound(JesusAttackSoundCollection, position, 4);
+            return PlaySound(JesusAttackSoundCollection, position, 4);
         }
 
-        private void PlaySound(SoundCollection collection, Vector3 position, float duration = 2)
+        public GameObject PlayPushedSound(Vector3 position)
+        {
+            return PlaySound(PushedSoundCollection, position, 4);
+        }
+
+        public GameObject PlayAcknowledgeSound(Vector3 position)
+        {
+            return PlaySound(AcknowledgeSoundCollection, position);
+        }
+
+        private GameObject PlaySound(SoundCollection collection, Vector3 position, float duration = 2)
         {
 
             GameObject oneShotAudioSource = Instantiate(OneShotAudioSource, position, Quaternion.identity) as GameObject;
@@ -46,6 +56,8 @@ namespace Assets.Scripts
                 oneShotAudioSource.transform.parent = transform;
                 Destroy(oneShotAudioSource, duration);
             }
+            return oneShotAudioSource;
         }
+
     }
 }

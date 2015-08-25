@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -8,6 +9,7 @@ namespace Assets.Scripts
         private AnimationState _armAnimation;
         [SerializeField] private float _markerSpeed;
         private bool _isUnderGaze;
+        private float _underGazeTime;
         private float _lastTimeStep;
         [SerializeField] private float _threshold;
         private bool _pointOfNoReturn;
@@ -52,6 +54,13 @@ namespace Assets.Scripts
 
         private IJesusDelegate _jesusDelegate;
 
+        private bool s_canAcknowledge;
+        private bool s_canBePushed;
+        [SerializeField] private float _acknowledgeSoundThreshold;
+        [SerializeField] private float _pushedSoundTreshold;
+
+        private GameObject s_pushedAudioSource;
+
         void Start ()
         {
             _jesusDelegate = GameObject.Find("Jesus").GetComponent<Jesus>();
@@ -94,10 +103,18 @@ namespace Assets.Scripts
 //			JesusLookTarget = GameObject.Find("Jesus/Jesus Parts Container/eye - left").transform;
 			SantaLookTarget = GameObject.Find("Characters/Santa (1)/Santa/santa look target").transform;
 
-		}
+            s_canAcknowledge = true;
+            s_canBePushed = true;
+
+            _acknowledgeSoundThreshold = 0.5f;
+            _pushedSoundTreshold = 1f;
+            _underGazeTime = Mathf.Infinity;
+        }
 	
         void Update ()
         {
+            // We don't want OnLookUpdate to be called on each frame. This is to prevent the gazing from acting faster on faster CPU's.
+            // Rather, OnLookUpdate is called every _threshold seconds while the elf is under gaze by santa.
             _lastTimeStep += Time.deltaTime;
             if (_lastTimeStep + Time.deltaTime > _threshold)
             {
@@ -110,6 +127,16 @@ namespace Assets.Scripts
 				{
                     _armAnimation.speed = _armAnimation.speed*0.95f;
                 }
+            }
+            if (Time.time - _underGazeTime > _acknowledgeSoundThreshold && s_canAcknowledge)
+            {
+                s_canAcknowledge = false;
+                SoundManager.GetSharedManager().PlayAcknowledgeSound(transform.position);
+            }
+            if (Time.time - _underGazeTime > _pushedSoundTreshold && s_canBePushed)
+            {
+                s_canBePushed = false;
+                s_pushedAudioSource = SoundManager.GetSharedManager().PlayPushedSound(transform.position);
             }
 
 			_focusMarker.transform.Rotate(Vector3.up * Time.deltaTime * _armAnimation.speed * 150);
@@ -147,6 +174,7 @@ namespace Assets.Scripts
                 _jesusDelegate.OnElfDestroyed(transform);
                 _bloodAndGoreFactory.CreateBloodAndGore(transform.position);
                 GameData.GetCurrentGameData().DecrementRemainingElfCount();
+                Destroy(s_pushedAudioSource);
                 Destroy(gameObject);
             }
 		}
@@ -160,17 +188,19 @@ namespace Assets.Scripts
         {
 			if (!_isTurnedToBlack) 
 			{
-//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
 				_isUnderGaze = true;
 				_focusMarker.gameObject.SetActive (true);
 				_armAnimation.speed = Mathf.Max (_armAnimation.speed, 1.0f);
 				_lastTimeStep = 0f;
+			    _underGazeTime = Time.time;
+
+			    s_canAcknowledge = true;
+			    s_canBePushed = true;
 			}
 		}
 
         public override void OnLookUpdate()
         {
-//            Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name);
             _armAnimation.speed = _armAnimation.speed*1.5f;
 
             if (_armAnimation.speed > _pointOfNoReturnThreshold)
@@ -193,6 +223,14 @@ namespace Assets.Scripts
 
 			lookAtSanta = false;
 			HeadJoint.transform.rotation = originalDirection;
+
+            _underGazeTime = Mathf.Infinity;
+
+            if (!_isTurnedToBlack)
+            {
+                s_canBePushed = true;
+                s_canAcknowledge = true;
+            }
         }
 
 		void PlayHammerSound()
@@ -205,12 +243,6 @@ namespace Assets.Scripts
         {
             numHammerHits = 0;
             _giftFactory.CreateGift(giftSpawnPos.position);
-//			Vector3 loc = Random.insideUnitSphere;
-//			loc.y += 2;
-//			Quaternion rot = Random.rotation;
-//			Transform instance = Instantiate(giftPrefab, giftSpawnPos.transform.position, rot) as Transform;
-//			Rigidbody rb = instance.GetComponent<Rigidbody>();
-//			rb.AddExplosionForce(500, giftSpawnPos.transform.position + loc, 100, 3.0F);
 		}
 
 		public void BurnToBlack()

@@ -21,15 +21,6 @@ namespace Assets.Scripts
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
             if (Physics.Raycast(transform.position, fwd, out hit, 60))
             {
-				// SOUND COMPONENT CALLS SOUNDMANAGER SCRIPT
-				if (hit.collider.CompareTag("Elf"))	
-				{
-					SoundScript.AcknowledgeActivator();
-					SoundScript.BeingPushedActivator();
-				}
-
-
-
                 GameObject hitObject = hit.transform.gameObject;
                 Target hitObjectTarget = hitObject.GetComponent<Target>();
                 if (hitObjectTarget != null)
