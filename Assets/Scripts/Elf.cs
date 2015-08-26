@@ -26,9 +26,11 @@ namespace Assets.Scripts
 		public int numHammerHits;
 		public Transform giftSpawnPos;
 
+        public float MinWorkingSpeed;
+
 		// for turning the Elf to color.black when he's on fire
-		[SerializeField] private bool _shouldBurnToBlack = true;
-		private bool _isTurnedToBlack = false;
+		private bool _shouldBurnToBlack = true;
+        private bool _isTurnedToBlack;
 		private Color elfSkinColor = new Color(0.97f, 0.61f, 0.65f);
 		private Renderer torsoRenderer;
 		private Renderer legLeftRenderer;
@@ -124,7 +126,14 @@ namespace Assets.Scripts
 				}
 				else
 				{
-                    _armAnimation.speed = _armAnimation.speed*0.95f;
+				    if (!_isTurnedToBlack)
+				    {
+				        _armAnimation.speed = Mathf.Max(_armAnimation.speed*0.95f, MinWorkingSpeed);
+				    }
+				    else
+				    {
+				        _armAnimation.speed = _armAnimation.speed*0.95f;
+                    }
                 }
             }
             if (Time.time - _underGazeTime > _acknowledgeSoundThreshold && s_canAcknowledge)
@@ -282,7 +291,10 @@ namespace Assets.Scripts
 
 		public void StopWorking()
 		{
-			_armAnimation.speed = 0f;
+		    if (_isTurnedToBlack)
+		        _armAnimation.speed = 0f;
+		    else
+		        _armAnimation.speed = MinWorkingSpeed;
 		}
 	}
 }

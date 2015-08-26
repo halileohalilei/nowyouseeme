@@ -987,6 +987,10 @@ Prefab:
       propertyPath: m_TagString
       value: Elf
       objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_IsPrefabParent: 0
@@ -1686,6 +1690,10 @@ Prefab:
     - target: {fileID: 178976, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_TagString
       value: Elf
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -2801,6 +2809,10 @@ Prefab:
     - target: {fileID: 133734, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -5258,6 +5270,10 @@ Prefab:
       propertyPath: _jesusLookTarget
       value: 
       objectReference: {fileID: 983085587}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_IsPrefabParent: 0
@@ -20733,6 +20749,10 @@ Prefab:
       propertyPath: m_TagString
       value: Elf
       objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_IsPrefabParent: 0
@@ -22025,6 +22045,10 @@ Prefab:
     - target: {fileID: 178976, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_TagString
       value: Elf
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -24056,6 +24080,10 @@ Prefab:
     - target: {fileID: 178976, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_TagString
       value: Elf
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -27092,6 +27120,10 @@ Prefab:
       propertyPath: m_TagString
       value: Elf
       objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
   m_IsPrefabParent: 0
@@ -27562,6 +27594,10 @@ Prefab:
     - target: {fileID: 2354858, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_UseLightProbes
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
@@ -28668,6 +28704,10 @@ Prefab:
     - target: {fileID: 178976, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
       propertyPath: m_TagString
       value: Elf
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405662, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
+      propertyPath: MinWorkingSpeed
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a912aeab40bc646b09dfb8233c9a28fd, type: 2}
