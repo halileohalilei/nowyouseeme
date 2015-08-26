@@ -43,9 +43,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d694cd1769e24844a879b4d95ef2ed3, type: 3}
   - {fileID: 8300000, guid: e217da3888d9ff843a4010e466c2d35d, type: 3}
   - {fileID: 8300000, guid: c6c470cacec2d8747a92950fc6e1143c, type: 3}
-  - {fileID: 8300000, guid: f164ac460e5ec11478c1d190605f8343, type: 3}
-  - {fileID: 8300000, guid: aba7a780c18795c488b304fb0af0800c, type: 3}
-  - {fileID: 8300000, guid: 7e0325e4a14434d45a6e0ce766a519c5, type: 3}
+  - {fileID: 8300000, guid: 70b13b50629c9994e952871035bb7eb1, type: 3}
+  - {fileID: 8300000, guid: d8226626d9ee90e448aa55959f148d6a, type: 3}
+  - {fileID: 8300000, guid: 553034bcde405bc4298f2e2aa24ab5f2, type: 3}
   - {fileID: 8300000, guid: abe21728214c3354989e754d0f705423, type: 3}
   - {fileID: 8300000, guid: 93efd7fdfc602c34db2f13e0a46166f6, type: 3}
   - {fileID: 8300000, guid: 1b9f4737542d99b4e8bb98e0be958655, type: 3}
@@ -110,6 +110,18 @@ Prefab:
       propertyPath: _probabilities.Array.data[8]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: AudioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70b13b50629c9994e952871035bb7eb1, type: 3}
+    - target: {fileID: 0}
+      propertyPath: AudioClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: d8226626d9ee90e448aa55959f148d6a, type: 3}
+    - target: {fileID: 0}
+      propertyPath: AudioClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 553034bcde405bc4298f2e2aa24ab5f2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146826}

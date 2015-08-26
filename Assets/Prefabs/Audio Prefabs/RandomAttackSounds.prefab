@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: 0328f164496540f48b70cc41b085de63, type: 3}
-  - {fileID: 8300000, guid: 914779b21c21b164f8210c1af0b8d599, type: 3}
+  - {fileID: 8300000, guid: 2296ae62cfcceac40b8ce752dbeafa89, type: 3}
+  - {fileID: 8300000, guid: 256afb3d4a7b51043b585b5286c02a92, type: 3}
   _probabilities:
   - 1
   - 1
@@ -99,11 +99,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: f14e9363f58dfde4b9e69cacb81b9ef0, type: 3}
+      objectReference: {fileID: 8300000, guid: 2296ae62cfcceac40b8ce752dbeafa89, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 83aebfcca5813074692173328ed10251, type: 3}
+      objectReference: {fileID: 8300000, guid: 256afb3d4a7b51043b585b5286c02a92, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[2]
       value: 
