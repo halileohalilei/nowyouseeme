@@ -54,9 +54,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 35fb7f302036d524d9c26eecc30f914c, type: 3}
   - {fileID: 8300000, guid: 6967987664941cc42ae88f20059f25a1, type: 3}
   - {fileID: 8300000, guid: 79ca638f17687314a8d334cf38d538db, type: 3}
-  - {fileID: 8300000, guid: 2b75680229da3194da5628b6d4b5ace5, type: 3}
   _probabilities:
-  - 1
   - 1
   - 1
   - 1
@@ -80,11 +78,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.size
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.size
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.data[0]
@@ -182,6 +180,10 @@ Prefab:
       propertyPath: AudioClips.Array.data[14]
       value: 
       objectReference: {fileID: 8300000, guid: 2b75680229da3194da5628b6d4b5ace5, type: 3}
+    - target: {fileID: 0}
+      propertyPath: _probabilities.Array.data[14]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146826}
