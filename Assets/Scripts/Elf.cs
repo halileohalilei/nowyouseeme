@@ -108,7 +108,7 @@ namespace Assets.Scripts
             s_canBePushed = true;
 
             _acknowledgeSoundThreshold = 0.5f;
-            _pushedSoundTreshold = 1f;
+            _pushedSoundTreshold = 1.2f;
             _underGazeTime = Mathf.Infinity;
         }
 	
