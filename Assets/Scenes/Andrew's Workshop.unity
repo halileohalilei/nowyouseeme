@@ -25655,8 +25655,8 @@ MonoBehaviour:
   - {fileID: 251158486}
   - {fileID: 641260519}
   _stayOnSamePointTime: 10
-  _minSpawnTime: 5
-  _maxSpawnTime: 10
+  _minSpawnTime: 10
+  _maxSpawnTime: 20
 --- !u!1 &1844951649
 GameObject:
   m_ObjectHideFlags: 0
