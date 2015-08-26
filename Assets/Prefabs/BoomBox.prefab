@@ -581,9 +581,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 144138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688ef6cdbc1387f4eb0928a2503a1d1c, type: 3}
+  m_Script: {fileID: 11500000, guid: e8f7cf09970c5bb4ebccd363874b9315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 0
+  _jesus: {fileID: 0}
 --- !u!164 &16470110
 AudioReverbFilter:
   m_ObjectHideFlags: 1
