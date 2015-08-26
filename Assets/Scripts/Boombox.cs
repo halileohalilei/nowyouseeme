@@ -35,11 +35,16 @@ namespace Assets.Scripts
             if (GameData.GetCurrentGameData().IsJesusActive)
             {
                 SoundManager.GetSharedManager().PlayScratchSound(transform.position);
-                _audioSource.Stop();
-                _audioSource.PlayDelayed(3);
+                _audioSource.mute = true;
+                Invoke("ResumeMusic", 3);
             }
 
             _jesus.CalmDown();
+        }
+
+        private void ResumeMusic()
+        {
+            _audioSource.mute = false;
         }
 
         public override void OnLookUpdate()
