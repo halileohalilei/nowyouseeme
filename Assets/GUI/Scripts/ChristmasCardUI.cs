@@ -8,7 +8,7 @@ public class ChristmasCardUI : MonoBehaviour
 	private Animator anim;
 	
 	public GameObject OVRCamera;
-	public GameObject AlpCamera;
+	public GameObject CardboardCamera;
 	private Animator CameraAnim;
 	private Animator CameraAnimAlp;
 	
@@ -31,7 +31,7 @@ public class ChristmasCardUI : MonoBehaviour
 		Invoke ("GuiInitialize", 5f);
 		anim = CoverHinge.GetComponent<Animator> ();
 		CameraAnim = OVRCamera.GetComponent<Animator> ();
-		CameraAnimAlp = AlpCamera.GetComponent<Animator> ();
+		CameraAnimAlp = CardboardCamera.GetComponent<Animator> ();
 	}
 	
 	void Update () 
@@ -50,12 +50,12 @@ public class ChristmasCardUI : MonoBehaviour
 	{
 		Invoke("DisableUI", 2f);
 
-		if (OVRCamera.activeInHierarchy == false)
+		if (!OVRCamera.activeInHierarchy)
 		{
 			CameraAnimAlp.SetTrigger("OVRSwoop");
 			Debug.Log("ALPVR CALLED");
 		}
-		else if (OVRCamera.activeInHierarchy == true)
+		else
 		{
 			CameraAnim.SetTrigger ("RealOVRSwoop");
 			Debug.Log("OVR CALLED");
