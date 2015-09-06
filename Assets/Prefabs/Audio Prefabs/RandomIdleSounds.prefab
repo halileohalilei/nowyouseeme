@@ -40,14 +40,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: fd5de891914888d4aa685a4c39ef9dda, type: 3}
-  - {fileID: 8300000, guid: 9d8ed576b955531478efe7780d1ef4c6, type: 3}
-  - {fileID: 8300000, guid: 7ea3a4e05aceeb744b302df42e0b9dfe, type: 3}
-  - {fileID: 8300000, guid: 4bc7b774d0c48004c9346ebb47a7c4fb, type: 3}
-  - {fileID: 8300000, guid: aabb1d57501c79a4fad814bfe3f22b18, type: 3}
+  - {fileID: 8300000, guid: d1190e5d57664be4aad15fab6d99224e, type: 3}
+  - {fileID: 8300000, guid: 1c9b796d5ccb51245ab83a14915fd8d4, type: 3}
+  - {fileID: 8300000, guid: 15a99970862e4e94cbb48b55ddade5df, type: 3}
   _probabilities:
-  - 1
-  - 1
   - 1
   - 1
   - 1
@@ -60,11 +56,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.data[0]
@@ -105,23 +101,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: f14e9363f58dfde4b9e69cacb81b9ef0, type: 3}
+      objectReference: {fileID: 8300000, guid: d1190e5d57664be4aad15fab6d99224e, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 83aebfcca5813074692173328ed10251, type: 3}
+      objectReference: {fileID: 8300000, guid: 1c9b796d5ccb51245ab83a14915fd8d4, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: f63e35df7fdf1954ba68849f0c0db255, type: 3}
+      objectReference: {fileID: 8300000, guid: 15a99970862e4e94cbb48b55ddade5df, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: 525f8d3c86d2e9d49a0210c2d9031db5, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: 10279f6da7dafcf469525b673db06961, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[5]
       value: 

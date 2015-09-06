@@ -53,7 +53,7 @@ namespace Assets.Scripts
         public void PlayRandomSound(AudioSource audioSource)
         {
             AudioClip randomClip = GetRandomClip();
-            audioSource.PlayOneShot(randomClip);
+            audioSource.PlayOneShot(randomClip, 2f);
         }
     }
 }

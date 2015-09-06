@@ -1636,7 +1636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _markerSpeed: 75
   _threshold: .5
-  _pointOfNoReturnThreshold: 10
+  _pointOfNoReturnThreshold: 15
   _jesusTolerance: 0
   hammerSoundArray:
   - {fileID: 8300000, guid: 562b39978e2ff470cac84c09272a79de, type: 3}
@@ -1653,9 +1653,12 @@ MonoBehaviour:
   giftPrefab: {fileID: 420884, guid: 9bffb6388697c4df481ed8d8dac9d19a, type: 2}
   numHammerHits: 0
   giftSpawnPos: {fileID: 436000}
-  _shouldBurnToBlack: 1
-  headJoint: {fileID: 449234}
-  lookTarget: {fileID: 0}
+  MinWorkingSpeed: 0
+  HeadJoint: {fileID: 0}
+  JesusLookTarget: {fileID: 0}
+  SantaLookTarget: {fileID: 0}
+  _acknowledgeSoundThreshold: 0
+  _pushedSoundTreshold: 0
 --- !u!135 &13523654
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1881,6 +1884,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _threshold
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _pointOfNoReturnThreshold
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

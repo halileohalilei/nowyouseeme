@@ -26,12 +26,27 @@ public class ChristmasCardUI : MonoBehaviour
     [SerializeField]
     private GameObject _gui;
 
+	//Audio
+	
+	private AudioSource AudioS;
+	public AudioClip HereWeGo;
+	public AudioClip TitleAudio;
+	
     void Start () 
 	{
 		Invoke ("GuiInitialize", 5f);
 		anim = CoverHinge.GetComponent<Animator> ();
 		CameraAnim = OVRCamera.GetComponent<Animator> ();
 		CameraAnimAlp = CardboardCamera.GetComponent<Animator> ();
+		
+		AudioS = GetComponent<AudioSource>();
+		Invoke ("TitleAudioGo", 3.5f);
+	}
+	
+	void TitleAudioGo()
+	{
+		
+		AudioS.PlayOneShot(TitleAudio, 2f);
 	}
 	
 	void Update () 
@@ -49,7 +64,9 @@ public class ChristmasCardUI : MonoBehaviour
 	public void GameBegins()
 	{
 		Invoke("DisableUI", 2f);
-
+		
+		AudioS.PlayOneShot(HereWeGo);
+		
 		if (!OVRCamera.activeInHierarchy)
 		{
 			CameraAnimAlp.SetTrigger("OVRSwoop");

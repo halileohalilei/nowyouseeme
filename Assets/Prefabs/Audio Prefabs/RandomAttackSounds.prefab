@@ -40,9 +40,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: 2296ae62cfcceac40b8ce752dbeafa89, type: 3}
-  - {fileID: 8300000, guid: 256afb3d4a7b51043b585b5286c02a92, type: 3}
+  - {fileID: 8300000, guid: 0d09f1ac167231940976a9940b041afe, type: 3}
+  - {fileID: 8300000, guid: 70356ad7b5c4768489978a933cf41bf7, type: 3}
+  - {fileID: 8300000, guid: 62884ea2c8e1a564095a110d905b3447, type: 3}
+  - {fileID: 8300000, guid: ed9e46e05dd8d524dab387732ccadf5f, type: 3}
   _probabilities:
+  - 1
+  - 1
   - 1
   - 1
 --- !u!1001 &100100000
@@ -54,11 +58,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _probabilities.Array.data[0]
@@ -99,19 +103,19 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 2296ae62cfcceac40b8ce752dbeafa89, type: 3}
+      objectReference: {fileID: 8300000, guid: 0d09f1ac167231940976a9940b041afe, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 256afb3d4a7b51043b585b5286c02a92, type: 3}
+      objectReference: {fileID: 8300000, guid: 70356ad7b5c4768489978a933cf41bf7, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 0328f164496540f48b70cc41b085de63, type: 3}
+      objectReference: {fileID: 8300000, guid: 62884ea2c8e1a564095a110d905b3447, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: 914779b21c21b164f8210c1af0b8d599, type: 3}
+      objectReference: {fileID: 8300000, guid: ed9e46e05dd8d524dab387732ccadf5f, type: 3}
     - target: {fileID: 0}
       propertyPath: AudioClips.Array.data[4]
       value: 
