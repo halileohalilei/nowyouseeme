@@ -7,7 +7,7 @@ public class ChristmasCardUI : MonoBehaviour
 	public GameObject CoverHinge;
 	private Animator anim;
 	
-	public GameObject OVRCamera;
+	public GameObject OVRCameraCorrected;
 	public GameObject CardboardCamera;
 	private Animator CameraAnim;
 	private Animator CameraAnimAlp;
@@ -36,7 +36,7 @@ public class ChristmasCardUI : MonoBehaviour
 	{
 		Invoke ("GuiInitialize", 5f);
 		anim = CoverHinge.GetComponent<Animator> ();
-		CameraAnim = OVRCamera.GetComponent<Animator> ();
+		CameraAnim = OVRCameraCorrected.GetComponent<Animator> ();
 		CameraAnimAlp = CardboardCamera.GetComponent<Animator> ();
 		
 		AudioS = GetComponent<AudioSource>();
@@ -67,18 +67,20 @@ public class ChristmasCardUI : MonoBehaviour
 		
 		AudioS.PlayOneShot(HereWeGo);
 		
-		if (!OVRCamera.activeInHierarchy)
+		if (!OVRCameraCorrected.activeInHierarchy)
 		{
 			CameraAnimAlp.SetTrigger("OVRSwoop");
-			Debug.Log("ALPVR CALLED");
+			Debug.Log("CARDBOARDCAM CALLED");
+			Invoke("PrepareScene", 6);
 		}
 		else
 		{
-			CameraAnim.SetTrigger ("RealOVRSwoop");
+			CameraAnim.SetTrigger ("OVRTrigger");
 			Debug.Log("OVR CALLED");
+			Invoke("PrepareScene", 9);
 		}
 
-        Invoke("PrepareScene", 6);
+       
 	}
 
     public void PrepareScene()
