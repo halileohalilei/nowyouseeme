@@ -62,24 +62,29 @@ public class GUIRayCasting : MonoBehaviour {
 					if (StartFlip == 20)
 					{
 						FirstGroup.SetActive(true);
+						GetComponent<AudioSource>().Play();
 					}
 
 					else if (StartFlip == 30)
 					{
 						SecondGroup.SetActive(true);
+						GetComponent<AudioSource>().Play();
 					}
 					else if (StartFlip == 40)
 					{
 						ThirdGroup.SetActive(true);
+						GetComponent<AudioSource>().Play();
 					}
 					else if (StartFlip == 50)
 					{
 						FourthGroup.SetActive(true);
+						GetComponent<AudioSource>().Play();
 
 					} 
 					else if (StartFlip == 60)
 					{
 						FifthGroup.SetActive(true);
+						GetComponent<AudioSource>().Play();
 						CardScript.GameBegins();
 						Invoke("SetRay", 3);
 					}

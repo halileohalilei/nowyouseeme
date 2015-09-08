@@ -107,11 +107,13 @@ namespace Assets.Scripts
 					elf.StopWorking();
                 }
                 GameData.GetCurrentGameData().IsJesusActive = false;
+				GetComponent<AudioSource>().Stop();
             }
         }
 
         public void FuckShitUp()
         {
+			GetComponent<AudioSource>().Play();
             GameData.GetCurrentGameData().IsJesusActive = true;
             _nextSpawnTime = Mathf.Infinity;
             _isAnnihilating = true;

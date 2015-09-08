@@ -20,7 +20,7 @@ public class ChristmasCardUI : MonoBehaviour
 	public GameObject Credits;
 	public GameObject CreditsButton;
 	public GameObject Back;
-    
+	   
     [SerializeField]
     private GameObject _characters;
     [SerializeField]
@@ -31,6 +31,11 @@ public class ChristmasCardUI : MonoBehaviour
 	private AudioSource AudioS;
 	public AudioClip HereWeGo;
 	public AudioClip TitleAudio;
+	
+	// Birds
+	public GameObject BirdOAudiobject;
+	private AudioSource BirdAudio;
+	
 	
     void Start () 
 	{
@@ -88,6 +93,7 @@ public class ChristmasCardUI : MonoBehaviour
         _characters.SetActive(true);
         _gui.SetActive(true);
         GameData.GetCurrentGameData().StartGame();
+		BirdOAudiobject.GetComponent<AudioSource>().Stop();
     }
 	
 	void DisableUI()
