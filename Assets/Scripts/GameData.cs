@@ -25,10 +25,10 @@ namespace Assets.Scripts
 		
 		public GameObject Boombox;
 		
-		//LOSE UI
-		public GameObject GameOver;
-		public GameObject YouWin;
-		public GameObject YouLose;
+		//ENDING UI
+		public GameObject WinLoseUI;
+		public GameObject Win;
+		public GameObject Lose;
 		private Animator anim;
 		
 		//GUI
@@ -51,6 +51,8 @@ namespace Assets.Scripts
 	                OnLevelFailed();
 	            }
 	            UpdateRemainingTimeGUI();
+
+
 	        }
 	    }
 
@@ -129,25 +131,26 @@ namespace Assets.Scripts
 		private void OnLevelCompleted()
 		{
 		    IsGameStarted = false;
-		    anim = GameOver.GetComponent<Animator>();
-		    anim.SetTrigger("GameOver");
+			anim = WinLoseUI.GetComponent<Animator> ();
+			anim.SetTrigger ("Go");
+			Win.SetActive (true);
+			Lose.SetActive (false);
             Debug.Log("LEVEL COMPLETE");
 			GetComponent<AudioSource>().Play();
-			YouWin.SetActive(true);
-			YouLose.SetActive(false);
-			Invoke("RestartLevel",5);
+
+			Invoke("RestartLevel",10);
 		}
 
 	    private void OnLevelFailed()
         {
 		    IsGameStarted = false;
-			anim = GameOver.GetComponent<Animator>();
-			anim.SetTrigger("GameOver");
+			anim = WinLoseUI.GetComponent<Animator> ();
+			anim.SetTrigger ("Go");
+			Win.SetActive (false);
+			Lose.SetActive (true);
             Debug.Log("LEVEL FAILED");
             GetComponent<AudioSource>().Play();
-            YouLose.SetActive(true);
-            YouWin.SetActive(false);
-            Invoke("RestartLevel",5);
+            Invoke("RestartLevel",10);
 	    }
 	    
 	    void RestartLevel()

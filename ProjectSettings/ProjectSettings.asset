@@ -77,7 +77,6 @@ PlayerSettings:
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
-  virtualRealitySupported: 1
   productGUID: 195e46769504cf44797e46f5b2ce7084
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
@@ -258,6 +257,7 @@ PlayerSettings:
   psp2InfoBarOnStartup: 0
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
+  virtualRealitySupported: 1
   spritePackerPolicy: 
   scriptingDefineSymbols: {}
   metroPackageName: VR Test
