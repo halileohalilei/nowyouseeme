@@ -967,7 +967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
@@ -21329,8 +21329,8 @@ Transform:
   - {fileID: 2001126350}
   - {fileID: 276313992}
   - {fileID: 998916593}
-  - {fileID: 1168508011}
   - {fileID: 691975237}
+  - {fileID: 1168508011}
   m_Father: {fileID: 1737379965}
   m_RootOrder: 0
 --- !u!1 &1534177630
@@ -23325,7 +23325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1630247276
 Animator:
   serializedVersion: 3
