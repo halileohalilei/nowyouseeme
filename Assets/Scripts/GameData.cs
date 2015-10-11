@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using Random = System.Random;
 
 namespace Assets.Scripts
 {
@@ -35,11 +36,13 @@ namespace Assets.Scripts
 		public GameObject GUIBoard;
 
 
-		void Start () {
+        [SerializeField]
+        private GameObject _characters;
+
+        void Start () {
 			_currentGameData = this;
 		    _currentRequiredPresentCount = 60;
             _givenTimeOnThisLevel = 60;
-		    //TODO: read all level specs and initialize game data accordingly
 		}
 
 	    void FixedUpdate()
@@ -78,7 +81,6 @@ namespace Assets.Scripts
 		    {
 		        OnLevelCompleted();
 		    }
-			//TODO: if player reached the required amount of presents, complete level
 			UpdatePresentCountGUI();
 		}
 
@@ -119,16 +121,55 @@ namespace Assets.Scripts
 		}
 
 		public void StartGame()
-		{
-		    IsGameStarted = true;
+        {
+            _characters.SetActive(true);
+            RandomizeElves();
+            IsGameStarted = true;
 		    _levelStartTime = Time.time;
 			ResetGameData();
 			GUIBoard.SetActive(true);
 			Boombox.SetActive(true);
-
 		}
 
-		private void OnLevelCompleted()
+	    private void RandomizeElves()
+        {
+            Transform elfSpawnPoints = GameObject.Find("Elf Spawn Points").transform;
+	        int possibleNoOfSpawnPoints = elfSpawnPoints.childCount;
+	        int[] randomPositionIndices = new int[possibleNoOfSpawnPoints];
+	        for (int i = 0; i < possibleNoOfSpawnPoints; i++)
+	        {
+	            randomPositionIndices[i] = i;
+	        }
+
+	        randomPositionIndices = shuffleArray(randomPositionIndices);
+
+            Transform elves = _characters.transform.FindChild("Elves");
+            int childCount = elves.childCount;
+	        Transform currentElf, randomElfPoint;
+            for (int i = 0; i < childCount; i++)
+	        {
+	            int randomPositionIndex = randomPositionIndices[i];
+	            randomElfPoint = elfSpawnPoints.GetChild(randomPositionIndex);
+	            currentElf = elves.GetChild(i);
+	            currentElf.transform.position = randomElfPoint.position;
+	            currentElf.transform.rotation = randomElfPoint.rotation;
+            }
+	    }
+
+        private int[] shuffleArray(int[] array)
+        {
+            Random r = new Random();
+            for (int i = array.Length; i > 0; i--)
+            {
+                int j = r.Next(i);
+                int k = array[j];
+                array[j] = array[i - 1];
+                array[i - 1] = k;
+            }
+            return array;
+        }
+
+        private void OnLevelCompleted()
 		{
 		    IsGameStarted = false;
 			anim = WinLoseUI.GetComponent<Animator> ();
