@@ -71,23 +71,15 @@ public class ChristmasCardUI : MonoBehaviour
 		{
 			CameraAnimAlp.SetTrigger("OVRSwoop");
 			Debug.Log("CARDBOARDCAM CALLED");
-			Invoke("PrepareScene", 6);
 		}
 		else
 		{
 			CameraAnim.SetTrigger ("OVRTrigger");
 			Debug.Log("OVR CALLED");
-			Invoke("PrepareScene", 9);
 		}
 
        
 	}
-
-    public void PrepareScene()
-    {
-        GameData.GetCurrentGameData().StartGame();
-		BirdOAudiobject.GetComponent<AudioSource>().Stop();
-    }
 	
 	void DisableUI()
 	{

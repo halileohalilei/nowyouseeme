@@ -97,6 +97,7 @@ namespace Assets.Scripts
 	        }
 	    }
 
+        // not used
 		public void IncrementLevel()
 		{
 			_currentLevel++;
